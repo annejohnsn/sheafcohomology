@@ -1,0 +1,60 @@
+\newpage
+\section*{Section 4}
+4.1 (a) Show that with the notation as above, $\Gamma(-, \pi)$ is indeed isomorphic to the sheaffication of $P$. \\
+4.1(b) Show that the $coker(\alpha)$ has the following universal property: given any other sheaf $H$, a map $\chi: G \rightarrow H$ factors through $coker(\alpha)$ if and only if $\chi \circ \alpha = 0$.\\
+4.1(c) Show that $coker(\alpha)_x = coker(\alpha_x)$.
+
+\newpage
+4.2 Show that \textbf{Ab(X)} is an Abelian category with kernel, cokernel and sum defined as above.
+
+\newpage
+4.3 Let $0 \rightarrow A \hookrightarrow I^0 \rightarrow I^1 \rightarrow ...$ and $0 \rightarrow B \rightarrow B \hookrightarrow J^0 \rightarrow J^1 \rightarrow J^2 \rightarrow ...$ be injective resolutions of $A$ and $B$ respectively. Show that a map $\phi: A \rightarrow B$ extends to a map of complexes:
+\[
+\begin{tikzcd}
+0 \arrow[r] \arrow[d, equal]
+& A \arrow[r] \arrow[d, "\phi", dashed]
+& I^0 \arrow[r] \arrow[d, "\phi^0", dashed]
+& I^1 \arrow[r] \arrow[d, "\phi^1", dashed]
+& I^2 \arrow[r] \arrow[d, "\phi^2", dashed]
+& ...
+\\
+0 \arrow[r]
+& B \arrow[r]
+& J^0 \arrow[r]
+& J^1 \arrow[r]
+& J^2 \arrow[r]
+& ...
+\end{tikzcd}
+\]
+
+%\[
+%\begin{tikzcd}
+%	 E \arrow[d, "p"]
+%	& A \arrow[r] \arrow[d, "\phi"] 
+%	& I^0 \arrow[r] \arrow[d, "\phi"] 
+%	& I^1 \arrow[r] \arrow[d, "\phi"] 
+%	& I^2 \arrow[r] \arrow[d, "\phi"]
+%	& "..." 
+%	\\
+%	0 \arrow[r] \arrow[d, equal]
+%	& B \arrow[r] \arrow[d, "\phi"] 
+%	& J^0 \arrow[r] \arrow[d, "\phi"] 
+%	& J^1 \arrow[r] \arrow[d, "\phi"] 
+%	& J^2 \arrow[r] \arrow[d, "\phi"]
+%	& "..." 
+%\end{tikzcd}
+%\]
+
+4.3 (b) Show that a map of complexes as above induces a homomorphism of cohomology groups 
+\[ H^n(X;A) \rightarrow H^n(X,B)\] 
+
+\newpage
+4.4(a) Let $f: Y \rightarrow X$ be a map of topological spaces. Show that there is a natural isomorphism $\Gamma_Y \rightarrow \Gamma_X \circ f_*$, 
+\[
+\begin{tikzcd}
+Ab(Y) \arrow[rr,"f_*"] \arrow[rd, "\Gamma_Y"'] & & Ab(X) \arrow[ld, "\Gamma_X"]\\
+& \textbf{Abelian Groups} 
+\end{tikzcd}
+\]
+4.4 (b) Show that a natural isomorphism between left exact functors $\tau: T_1 \rightarrow  T_2$ induces a natural isomorphism $R^nT_1 \rightarrow R^nT_2$ for each $n$.
+

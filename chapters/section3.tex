@@ -1,0 +1,41 @@
+\newpage
+\section*{Section 3}
+3.1 The pullback of an \'etale map is also \'etale. That is, given a pullback diagram, 
+\[
+\begin{tikzcd}
+X \times_Y E \arrow[r, "\pi_2"] \arrow[d, "\pi_1"']
+& E \arrow[d, "p"] \\
+X \arrow[r, "f"']
+& Y
+\end{tikzcd}
+\]
+then $\pi_1$ is \'etale if $p$ is.
+
+\newpage
+3.2. Verify the following equality of stalks:
+\[ (f^*B)_x \cong B_{f(x)}\]
+for each $x \in X$. 
+
+\newpage
+3.3. Prove that 
+\[ Hom_{Sh(Y)}(i_!A, B) \cong Hom_{Sh(X)}(A,i^*B)\]
+where $i: X \hookrightarrow Y$ is an open inclusion.
+
+\newpage
+3.4 (a) Verify the adjunction formula involving $j_*$ and $j^!$ in (7).\\
+3.4 (b) Show that $j^!B$ is isomorphic to a subsheaf of $j^*B$.
+
+\newpage
+3.5 Let $h: \hookrightarrow X$ be an inclusion map.\\ 
+(a) Show that there are natural isomorphisms 
+\begin{itemize}
+	\item $h_*h^* \cong id \cong h_!h^*$ if $h$ is open;
+	\item $h_*h^* \cong h_*h^!$ is $h$ is closed.
+\end{itemize}
+3.5 (b) If $h: Z \hookrightarrow X$ is locally closed, prove that the definitions of $h_!$ and $h^!$ do not depend on the choice of the factorization $h= i \circ j$. Also prove that $h_!h^! \cong id$.\\
+3.5 (c) Conclude that for a locally closed subspace $h: Z \hookrightarrow X$, 
+\begin{itemize}
+	\item $h_! \cong h_!$ and $h^! \cong h^*$ if $h$ is open;
+	\item $h_! \cong h_*$ and $h^! \cong h^!$ if $h$ is closed. 
+\end{itemize}
+3.5 (d) For two composable locally closed inclusions $W \xhookrightarrow{k} Z \xhookrightarrow{h} X$, show that $h_!k_! \cong (hk)_!$ and $k^!h^! \cong (hk)^!$.

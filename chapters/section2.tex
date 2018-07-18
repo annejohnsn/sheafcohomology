@@ -1,0 +1,117 @@
+\section*{Section 2}
+2.1. For a commutative triangle of topological spaces and continuous maps, \\
+\[
+\begin{tikzcd}
+	E \arrow[rr,"h"] \arrow[rd, "\pi"'] & & Z \arrow[ld, "f"]\\
+	& X 
+\end{tikzcd}
+\]
+
+\noindent if $f$ and $\pi$ are \'etale, so is $h$ (in particular, $h$ is open).\\
+
+\noindent Let $y \in E$. Since $f$ is \'etale, $\exists U$ an open neighborhood of $h(y)$ such that $f \mid_U$ is a homeomorphism. Likewise, since $\pi$ is \'etale, $\exists W$ an open neighborhood of $y$ such that $\pi \mid_W$ is a homeomorphism. Let $V = h^{-1}(U) \cap W$. Since $h$ is continuous, $h^{-1}(U)$ is open, so $V$ is open in $E$. Since $V \subseteq W$, $\pi \mid_V$ is a homeomorphism.
+\\\\
+\noindent Since $h(V) \subseteq U$, and $f \mid_U$ is a homeomorphism, it only remains to show that $h(V)$ is open, since this will imply that $f \mid_{h(v)}$ is a homeomorphism, and in turn that $h \mid_V$ is a homeomorphism (since $\pi \mid_V$ is a homeomorphism, and the diagram commutes). To see that $h(V)$ is open, note that $\pi(V)$ is open in $X$, since $\pi$ is \'etale and $V$ is open in $E$. Further, $f(h(V)) = \pi(V)$ since the diagram commutes. Then since $h(V) \subseteq U$ and$f \mid_U$ is a homeomorphism, $h(V)$ is open in $Z$, so $h \mid_V$ is a homeomorphism and $h$ is \'etale.
+
+
+
+\newpage
+\noindent 2.2. (a) Show that Corollary 2.10 determines the associated sheaf up to isomorphism. That is, if $R$ is a sheaf and there exists a map $\psi: P \rightarrow R$ with the same property as $\eta$ in Corollary 2.10, then $R \cong \Gamma Et(P)$.\\ 
+
+\begin{corollary*}
+	(2.10) For a map $\phi: P \rightarrow Q$ between presheaves on $X$, if $Q$ is a sheaf then there exists a unique map of sheaves $\hat{\phi}$ such that $\hat{\phi} \circ \eta = \phi$. 
+\end{corollary*}
+
+\[
+\begin{tikzcd}
+P \arrow[r,"\phi"] \arrow[d, "\eta"']
+& Q \\
+\Gamma EtP \arrow[ru, "!", "\hat{\phi}"', dashed]
+\end{tikzcd}
+\]
+
+The universal property of $(\Gamma EtP, \eta)$ implies a unique map $\hat{\psi}$ such that $\psi = \hat{\psi} \circ \eta $ and the universal property of $(R, \psi)$ implies a unique map $\hat{\eta}$ such that $\eta=\hat{\eta} \circ \psi$, i.e. we have the following diagrams: 
+\begin{multicols}{2}
+
+\[
+\begin{tikzcd}
+P \arrow[r,"\psi"] \arrow[d, "\eta"']
+& R \\
+\Gamma EtP \arrow[ru, "!", "\hat{\psi}"', dashed]
+\end{tikzcd}
+\]
+
+\[
+\begin{tikzcd}
+P \arrow[r,"\eta"] \arrow[d, "\psi"']
+& \Gamma EtP \\
+R \arrow[ru, "!", "\hat{\eta}"', dashed]
+\end{tikzcd}
+\]
+\end{multicols}
+
+This implies the following diagrams commute:
+\begin{multicols}{2}
+\[
+\begin{tikzcd}
+& \Gamma EtP \arrow[d, "!"', "\hat{\psi}", dashed]\\
+P \arrow[r,"\psi"] \arrow[d, "\eta"'] \arrow[ru, "\eta"]
+& R \arrow[ld, "!"',"\hat{\eta}", dashed]\\
+\Gamma EtP 
+\end{tikzcd}
+\]
+
+\[
+\begin{tikzcd}
+& R \arrow[d, "!"', "\hat{\eta}", dashed]\\
+P \arrow[r,"\eta"] \arrow[d, "\psi"'] \arrow[ru, "\psi"]
+& \Gamma EtP \arrow[ld, "!"', "\hat{\psi}", dashed]\\
+R 
+\end{tikzcd}
+\]
+\end{multicols}
+
+In particular, $\hat{\eta} \circ \hat{\psi}$ is the unique map such that $\eta = \hat{\eta} \circ \hat{\psi} \circ \eta$ and $\hat{\psi} \circ \hat{\eta}$ is the unique map such that $\psi = \hat{\psi} \circ \hat{\eta} \circ \psi$. But then uniqueness implies $\hat{\eta} \circ \hat{\psi} = id_{\Gamma Et P}$ and $\hat{\psi} \circ \hat{\eta} = id_R$. Then $R \cong \Gamma Et P$.
+
+
+
+\newpage
+\noindent 2.2. (b) If $P$ is a subpresheaf of $R$ and $R$ is a sheaf, then let
+\begin{center}
+$ \tilde{P}(U) = \{r \in R(U) \mid$ for each $x \in U$ there is a neighbourhood $W_x$ $\subseteq U$ of $x$ such that $(r\mid_{W_x}) \in P(W_x)\}$.\\
+\end{center}
+\noindent Show that $ P\subseteq \tilde{P} \subseteq R, \tilde{P}$ is a sheaf and $P \hookrightarrow \tilde{P}$ has the unique universal property of Corollary 2.10; hence $\tilde{P}$ is the associated sheaf for $P$.\\
+
+\underline{$P \subseteq \tilde{P} \subseteq R$:}\\
+We want to show that for $U \in X$, open, $P(U) \subseteq \tilde{P}(U) \subseteq R(U)$. So let $U \subseteq X$ be open. By construction $\tilde{P}(U) \subseteq R(U)$, so we need only show $P(U) \subseteq \tilde {P}(U)$. Let $s \in P(U)$. Since $P$ is a subpresheaf $s \in R(U)$ and for $x \in U$, $U$ itself is a neighborhood of x such that, $s \mid_U$ is in $P(U)$. Then $s \in \tilde{P}(U)$. \\
+
+\underline{$\tilde{P}$ is a sheaf:}\\
+Let $U$ be an open set in $X$ and let $\cup U_i$, $i \in I$, be an open cover for $U$. Suppose $\{a_i\} \in \tilde{P}(U_i)$, for $i \in I$ is a compatible family for the $U_i$, i.e., $a_i \mid_{U_i \cap U_j} =a_j \mid_{U_i \cap U_j}$.
+For each $i \in I$ and each $x \in U_i$, choose $W_x^i$ such that $(a_i \mid_{W_x^i}) \in P(W_x^i)$. Then $\cup_i \cup_{x \in U_i} W_x^i$ is an open cover for $U$ (since $\cup_x W_x^i$ is an open cover for each $U_i$). Moreover, $a_i \mid_{W_x^i \cap W_y^j}=a_j \mid_{W_x^i \cap W_y^j}$ because $(a_i \mid_{U_i \cap U_j}) \mid_{W_x^i \cap W_y^j}=(a_j\mid_{U_i \cap U_j}) \mid_{W_x^i \cap W_y^j}$. So $\{a_i\} \in P(W_x^i)$ is a compatible family in R.\\
+
+Since $R$ is a sheaf, let $a$ e the unique amalgamation. We want to show $a \in \tilde{P}(U)$, i.e., $\forall x \in U, \exists$ a neighborhood $V_x$ of $x$ such that $a \mid_{V_x} \in P(V_x)$. But since $a$ is the amalgamation of the family $\{a_i\} \in P(W_x^i)$, if $x \in U$, then $x \in U_i$, for some $i$, so $a \mid_{W_X^i} = a_i$ and $W_x$ was chosen so that $a_i \mid_{W_x^i} \in P(W_x^i)$. Then take $V_x$ to be $W_x^i$ (for appropriate $i$). Then $a \in \tilde{P}(U)$, so $\tilde{P}$ is a sheaf. \newpage
+
+\underline{$P \hookrightarrow \tilde{P}$ has the unique universal property of Corollary 2.10}:\\
+
+Let $i: P \hookrightarrow \tilde{P}$ be the map that injects $P(U)$ into $\tilde{P}(U)$. We must show that for a map between presheaves, $\phi: P \rightarrow Q$, where $Q$ is a sheaf, there is a unique $\tilde{\phi}$ such that $\tilde{\phi} \circ i = \phi$. \\
+The universal property of $(P, \eta_P)$ implies that for a map $\phi: P \rightarrow Q$, there is a unique map $\hat{\phi}: \Gamma EtP \rightarrow Q$ such that the following commutes:
+
+\[
+\begin{tikzcd}
+P \arrow[r,"\phi"] \arrow[d, "\eta_p"']
+& Q \\
+\Gamma EtP \arrow[ru, "!", "\hat{\phi}"', dashed]
+\end{tikzcd}
+\]
+
+Then it suffices to find a unique map, $f$, from $\tilde{P} \rightarrow \Gamma Et P$ such that $\eta_p = f \circ i$, since that will imply the follow diagram commutes (in particular, $\phi = \hat{\phi} \circ f \circ i$, so that $\tilde{\phi} = \hat{\phi} \circ f$ obtains the result):
+
+\[
+\begin{tikzcd}
+\tilde{P} \arrow[rd, "!", "f"', dashed] 
+& P \arrow[l, "i"'] \arrow[r,"\phi"] \arrow[d, "\eta_p"']
+& Q \\
+& \Gamma EtP \arrow[ru, "!", "\hat{\phi}"', dashed]
+\end{tikzcd}
+\]
+

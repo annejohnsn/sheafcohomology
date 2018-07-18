@@ -1,0 +1,54 @@
+\documentclass[11pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{fancyvrb}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{amsthm}
+\usepackage{color,soul}
+\usepackage{tikz-cd}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[chapter] 
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem*{corollary*}{Corollary}
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{example}{Example}[definition]
+\newtheorem{construction}{Construction}[chapter]
+
+\setlength\parindent{0pt}
+
+\title{Sheaf Cohomology}
+\author{Anne Johnson}
+\date{\today}
+
+\begin{document}
+%\maketitle
+
+%\chapter*{Abstract}
+%	something about math
+%\chapter*{Acknowledgements}
+%\tableofcontents
+
+\chapter*{Exercises}
+\input{chapters/section2}
+\input{chapters/section3}
+\input{chapters/section4}
+\input{chapters/section7}
+\input{chapters/section8}
+\chapter*{Midterm}
+\input{chapters/midterm}
+
+%\appendix
+%\chapter{Appendix}
+%\input{chapters/appendix}	
+%\begin{thebibliography}{1}
+%\bibitem{robert} Alain M. Robert, A course in p-adic analysis.
+%\end{thebibliography}
+\end{document} 

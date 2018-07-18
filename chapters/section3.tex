@@ -9,21 +9,85 @@ X \arrow[r, "f"']
 & Y
 \end{tikzcd}
 \]
-then $\pi_1$ is \'etale if $p$ is.
+then $\pi_1$ is \'etale if $p$ is.\\\\
+Let $(u,e) \in X \times_Y E$. Since $p$ is \'etale, there exists a $U \subseteq E$, open neighborhood of $e = \pi_2(u,e)$, such that $p:U \rightarrow p(U)$ is a homeomorphism. Since $f: X \rightarrow Y$ is continuous (and $p$ is open), the preimage of $p(U)$ under $f$ is open in $X$. Let $W \subseteq X$ be the preimage of $p(U)$. Since $p(e) = f(u)$, $f(u) \in p(U)$ and so $u \in W$.\\
+
+Since $W \times U$ is open in $X \times E$ under the product topology, $V = W \times U \cap X \times_Y E $ is an open neighborhood of $(u,e)$ in $X \times_Y E $ under the subspace topology. I claim that $\pi_1 \mid_V$ is a homeomorphism. Since $\pi_1$ is a projection map, $\pi_1 \mid_V$ is continuous. We must show there exists a continuous $g: \pi_1(V) \rightarrow X \times_Y E$ such that $g \circ \pi_1 = id$. Since $p \mid_U$ is a homeomorphism, we have continuous $p^{-1}: f(\pi_1(V)) \rightarrow E$ such that $p^{-1} \circ p = id_E$. Then $p^{-1}(f(\pi_1(V))) = p^{-1}(p(\pi_2(V)))=\pi_2(V)$. Let $i: EtB \hookrightarrow X \times_Y EtB$ be the inclusion map. Then let $g: \pi_1(V) \rightarrow X \times_Y EtB$ be defined by $x \mapsto (x, i \circ p^{-1} \circ f(x))$. Then $g$ is continuous and $g \circ \pi_1 \mid_V = id_{X \times_Y E}$, so that $\pi_1 \mid_V$ is a homeomorphism. Then $\pi_1$ is \'etale. 
 
 \newpage
 3.2. Verify the following equality of stalks:
 \[ (f^*B)_x \cong B_{f(x)}\]
-for each $x \in X$. 
+for each $x \in X$. \\
+
+First note that since $f^*(B) = \Gamma (X \times_Y EtB)$ and since $\pi_1$ is \'etale, $Et \Gamma(X \times_Y EtB) \cong X \times_Y EtB$ by the results in section 2. That is, $Et(f^*(B)) \cong X \times_Y EtB = \{(x,e) \in X \times EtB \mid f(x) = \pi_B(e)\}$.\\
+
+Fix an $x_0 \in X$. The stalk of $f^*(B)$ at $x_0$ is $(f^*(B))_{x_0} = \{s \in Et(f^*(B)) \mid \pi_B(s) = x_0\} =\{(x_0,e) \in X \times EtB \mid f(x_0) = \pi_B(e)\}$. Then the map $\pi_2$ gives us a bijection $\{(x_0,e) \in X \times EtB \mid f(x_0) = \pi_B(e)\} \rightarrow \{e \in EtB \mid f(x_0)=\pi_B(e)\}$, which is exactly the stalk of $B_{f(x_0)}$.
+
 
 \newpage
 3.3. Prove that 
 \[ Hom_{Sh(Y)}(i_!A, B) \cong Hom_{Sh(X)}(A,i^*B)\]
-where $i: X \hookrightarrow Y$ is an open inclusion.
+where $i: X \hookrightarrow Y$ is an open inclusion.\\
+
+First note that since $i \circ \pi_A$ is \'etale, $Et(i_! A) = Et(\Gamma Et A) = Et A$. Since $B$ is a sheaf, 2.9 implies $\phi \in Hom_{Sh(Y)}(i_! A,B)$ corresponds to a map $g: EtA \rightarrow EtB$ such that the following commutes:
+
+\[
+\begin{tikzcd}
+EtA \arrow[rr,"g"] \arrow[rd, "i \circ \pi_A"'] & & Et B \arrow[ld, "\pi_B"]\\
+& Y 
+\end{tikzcd}
+\]
+
+By the notes, $Et(i^*B) = Et(B\mid_X)$ and since $i^*B$ is a sheaf, 2.9 implies $\psi \in Hom_{Sh(X)}(A, i^*B)$ corresponds to a map $h: EtA \rightarrow Et(B\mid_X)$ such that the follow commutes:
+
+\[
+\begin{tikzcd}
+EtA \arrow[rr,"h"] \arrow[rd, "\pi_A"'] & & Et(B\mid_X) \arrow[ld, "\pi_{i^*B}"]\\
+& X 
+\end{tikzcd}
+\]
+
+To see the correspondance between $g$ and $h$, note that $Et(B \mid_X) \cong X \times_Y EtB$, so that given $g:EtA \rightarrow EtB$, $h$ is the unique map such that the following commutes (and given $h:EtA \rightarrow Et(B\mid_X) \cong X \times_Y EtB$, $g$ is the map $\pi \circ h)$: 
+
+\[
+\begin{tikzcd}
+EtA \arrow[ddr, bend right, "\pi_A"'] \arrow[drr, bend left, "g"] \arrow[dr, "h", dashed]\\
+& X \times_Y EtB \arrow[r, "\pi"] \arrow[d, "\pi_{Bi^* B}"']
+& EtB \arrow[d, "\pi_B"] \\
+& X \arrow[r, "i"', hookrightarrow]
+& Y
+\end{tikzcd}
+\]
+
 
 \newpage
 3.4 (a) Verify the adjunction formula involving $j_*$ and $j^!$ in (7).\\
-3.4 (b) Show that $j^!B$ is isomorphic to a subsheaf of $j^*B$.
+
+We must show that $Hom_{Ab(Y)}(j_*A, B) \cong Hom_{Ab(Z)} (A, j^!B)$.\\
+
+Let $\phi \in Hom_{Ab(Y)}(j_*A, B)$. Then $\phi$ is a collection of maps $\phi_U: j_*A(U) \rightarrow B(U)$ for every open set $U \subseteq Y$ . Note that for $U \subseteq Y$ such that $U \cap Z = \emptyset$, $j_*A(U) = A(U \cap Z) = A(\emptyset) = \{0\}$, so that there is only one choice for $\phi_U$. Likewise, if $U \subset Y$ with $U \cap \delta Z \neq \emptyset$, then there exists a $V \subset U$ such that $V \cap Z = \emptyset$ and naturality of $\phi$ implies:
+\[
+\begin{tikzcd}
+ j_*A(U) \arrow[r, "\phi_U"] \arrow[d, "\rho"']
+& B(U) \arrow[d, "\rho"] \\
+ j_*A(V)= A(V \cap Z) = \{0\} \arrow[r, "\phi_V"']
+& B(V)
+\end{tikzcd}
+\]
+
+so that $\phi_U(j_*A(U))$ is the constant $0$ map. Finally, suppose $U$ is such that $U \cap Z = U$. For each such $U$, the choices for $\phi_U$ are the group homomorphisms, $A(U) \rightarrow B(U)$. \\
+
+Now consider $\psi \in Hom_{Ab(Z)} (A, j^!B)$. $\psi$ is a collection of maps $\psi_V$ for each open $V$ in $Z$. Suppose $V$ is open in $Z$ and $V \cap \delta Z \neq \emptyset$. Then $j^!B(V) = {0}$ and so there is only one choice for $\psi_V$, the constant $0$ map. On the other hand, if $V \cap \delta Z = \emptyset$, then the choices for $\phi_V$ are the group homomorphisms, $A(V) \rightarrow B(V)$.\\
+
+Then elements of both $Hom_{Ab(Z)} (A, j^!B)$ and $Hom_{Ab(Y)}(j_*A, B)$ correspond to the group homorphisms from $A(U) \rightarrow B(U)$ for every $U \subseteq Y$ with $U \cap Z = U$. 
+
+
+\newpage
+3.4 (b) Show that $j^!B$ is isomorphic to a subsheaf of $j^*B$.\\
+
+We must show that for $V$ open in $Z$, $j^!B(V) \subseteq j^*B(V)$ and for $U \supseteq V$, the restrictions maps of $j^!B$ agree with those of $j^*B$.\\
+
+So let $V$ be open in $Z$ and choose $U$ open in $Y$ such that $V=Z\cap U$. Let $ s \in j^!B(V)$. Then $s \in B(U)$ and $s \mid_{U \setminus Z} =0$. Note that elements of $j^*B(V)$ are continuous functions $\sigma: V \rightarrow Z \times_Y EtB$ such that $\pi_1 \circ \sigma = id_V$. Then sections of $j^*B(V)$ are functions defined by $x \mapsto (x, germ_x(s))$ for some $s$, a section of $B(U)$ for some $U \ni x$.
 
 \newpage
 3.5 Let $h: \hookrightarrow X$ be an inclusion map.\\ 

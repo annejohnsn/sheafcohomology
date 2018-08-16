@@ -1,0 +1,112 @@
+\section*{Section 1}
+
+\begin{definition*}
+	(presheaf)\\ A presheaf on $X$ is a functor from the category $\mathcal{O}(X)^{op}$ to the category $\textbf{Set}$. That is, a presheaf on $X$ associates to each open set, $U$ in $X$, a set $A(U)$, and for each arrow in $\mathcal{O}(X)^{op}$ (i.e., for each $V \subseteq U$, open in $X$), a restriction map $\rho^U_V: A(U) \rightarrow A(V)$ such that for $W \subseteq V \subseteq U$, $\rho^V_W \circ \rho^U_V = \rho^U_W$ and $\rho^U_U =1_{A(U)}$.
+\end{definition*}
+
+\begin{definition*}
+	(presheaf of Abelian groups)\\ If $A$ is a presheaf on $X$, we say that $A$ is a presheaf of Abelian groups, if for each open $U$ in $X$, $A(U)$ is an Abelian group and each restriction map is a group homomorphism.
+\end{definition*}
+
+\begin{definition*}
+	(compatible family)\\ Let $U = \bigcup_{i \in I} U_i$ be an open cover for some open $U$ in $X$. A family of elements $\{a_i\} \in A(U_i)$ is called compatible if $a_i \mid_{U_i \cap U_j} = a_j \mid_{U_i \cap U_j}, \forall i,j \in I$. That is, a family is compatible if the elements agree on restriction to intersections (the map $a_i \mapsto a_i \mid_V$ for $V \subseteq U$ is well-defined).
+\end{definition*}
+
+\begin{definition*}
+	(amalgamation)\\
+	If $U = \bigcup_{i \in I} U_i$ is an open cover for some open $U$ in $X$ and  $\{a_i\} \in A(U_i)$ is a compatible family for the $U_i$, we say $a$ is an amalgamation for the family if $a \mid_{U_i} = a_i, \forall i \in I$. (Is this the same thing as saying $\{a\} \cup \{a_i\}$ is a compatible family for the cover $\bigcup_{i \in I} U_i \cup U$?) 
+\end{definition*}
+
+\begin{definition*}
+	(sheaf)\\
+	A presheaf $P$ on $X$ is a sheaf if every compatible family has a unique amalgamation.
+\end{definition*}
+
+\begin{definition*}
+	(separated presheaf)\\
+		A presheaf $P$ on $X$ is separated1 if every compatible family has at most one amalgamation.
+\end{definition*}
+
+\begin{definition*}
+	(morphism of (pre-)sheaves) \\ If $A$ and $B$ are (pre-)sheaves on $X$, a morphism $\phi:A \rightarrow B$ is a family of functions $\phi_U: A(U) \rightarrow B(U)$ such that the follows commutes:
+	\[
+	\begin{tikzcd}
+	A(U) \arrow[r, "\phi_U"] \arrow[d, "\rho^U_V"']
+	& B(U) \arrow[d, "\rho^U_V"] \\
+	A(V) \arrow[r, "\phi_V"']
+	& B(V)
+	\end{tikzcd}
+	\]
+	That is, a natural transformation of $A$ and $B$ viewed as functors.
+\end{definition*}
+
+\begin{definition*}
+	(\textbf{PSh(}X\textbf{)}) \\ We denote by \textbf{PSh(}X\textbf{)} the category whose objects are presheaves on X and whose arrows are morphisms of presheaves.
+\end{definition*}
+
+\begin{definition*}
+	(\textbf{Sh(}X\textbf{)})\\ We denote by \textbf{Sh(}X\textbf{)} the category whose objects are sheaves on X and whose arrows are morphisms of sheaves.
+\end{definition*}
+
+\begin{definition*}
+	(morphism of Abelian sheaves)\\
+	If $A$ and $B$ are Abelian sheaves on $X$, a morphism from $A$ to $B$ is a morphism, $\phi$, of $A$ and $B$ as presheaves, where each map $\phi_U$ is also a group homomorphism $A(U) \rightarrow B(U)$ for each open $U \in X$. 
+\end{definition*}
+
+\begin{definition*}
+	(\textbf{Ab(}X\textbf{)}) \\ We denote by \textbf{Ab(}X\textbf{)} the category whose objects are Abelian sheaves on $X$ and whose arrows are morphisms of Abelian sheaves. 
+\end{definition*}
+
+\begin{definition*}
+	(cochain complex of sheaves)\\ A cochain complex of sheaves is a family of sheaves, $A^i$ for $i \in \mathbb{Z}$, along with a family of morphisms $d^i: A^i \rightarrow A^{i+1}$ such that $d^i \circ d^{i-1} =0$.
+	
+	\[
+	\begin{tikzcd}
+	... \arrow[r] 
+	& A^{-2} \arrow[r, "d^{-2}"] 
+	& A^{-1} \arrow[r, "d^{-1}"] 
+	& A^0 \arrow[r, "d^0"] 
+	& A^1 \arrow[r, "d^1"] 
+	& ...
+	\end{tikzcd}
+	\]
+	
+\end{definition*}
+
+\begin{definition*}
+	(morphism of cochain complexes)\\ If $\textbf{A}$ and $\textbf{B}$ are cochain complexes, a morphism $\phi$ from $\textbf{A}$ to $\textbf{B}$ is a family of morphisms of sheaves from $A^i$ to $B^i$ for all $i \in \mathbb{Z}$, such that the following commutes:
+	
+	\[
+	\begin{tikzcd}
+	... \arrow[r, "d"]
+	& A^{-2} \arrow[r, "d"] \arrow[d, "\phi^{-2}"]
+	& A^{-1} \arrow[r, "d"] \arrow[d, "\phi^{-1}"]
+	& A^0 \arrow[r, "d"] \arrow[d, "\phi^0"]
+	& A^1 \arrow[r, "d"] \arrow[d, "\phi^2"]
+	& ...
+	\\
+	... \arrow[r,"d"]
+	& B^{-2} \arrow[r,"d"]
+	& B^{-1} \arrow[r,"d"]
+	& B^0 \arrow[r,"d"]
+	& B^1 \arrow[r,"d"]
+	& ...
+	\end{tikzcd}
+	\]
+\end{definition*}
+
+\begin{definition*}
+	(\textbf{Ch(X)})\\ We denote by \textbf{Ch(X)} the category whose objects are cochain complexes and whose arrows are morphisms of cochain complexes.
+\end{definition*}
+
+\begin{definition*}
+	(\textbf{Ch$^+$(X)}) \\ We denote by \textbf{Ch$^+$(X)} the subcategory of \textbf{Ch(X)} whose objects are cochain complexes that are bounded below, that is, cochain complexes for which there exists an $N \in \mathbb{Z}$ such that for all $n \leq N$ we have $A^n = 0$.
+\end{definition*}
+
+\begin{definition*}
+	(sheaf of sections) Suppose $f: E \rightarrow X$ is a continuous map. We define the sheaf of sections, denoted $\Gamma_f$ (or $\Gamma_E$ or $\Gamma(-,f)$ or $\Gamma(-,E)$), by $\Gamma_f(U) = \{s:U\rightarrow E \mid s $ is continuous and $f \circ s =id_U \}$.
+\end{definition*}
+
+\begin{definition*}
+	(constant sheaf) For a fixed set $S$, we define the constant sheaf on $X$, denoted by $\Delta S$, by $\Delta S(U) = \{f:U\rightarrow S \mid f $ is locally constant$\}$. (NB: this is the sheaffication of the naive definition that assigns $S$ to each $U$)
+\end{definition*}

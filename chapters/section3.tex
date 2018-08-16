@@ -85,21 +85,31 @@ Then elements of both $Hom_{Ab(Z)} (A, j^!B)$ and $Hom_{Ab(Y)}(j_*A, B)$ corresp
 \newpage
 3.4 (b) Show that $j^!B$ is isomorphic to a subsheaf of $j^*B$.\\
 
-We must show that for $V$ open in $Z$, $j^!B(V) \subseteq j^*B(V)$ and for $U \supseteq V$, the restrictions maps of $j^!B$ agree with those of $j^*B$.\\
 
-So let $V$ be open in $Z$ and choose $U$ open in $Y$ such that $V=Z\cap U$. Let $ s \in j^!B(V)$. Then $s \in B(U)$ and $s \mid_{U \setminus Z} =0$. Note that elements of $j^*B(V)$ are continuous functions $\sigma: V \rightarrow Z \times_Y EtB$ such that $\pi_1 \circ \sigma = id_V$. Then sections of $j^*B(V)$ are functions defined by $x \mapsto (x, germ_x(s))$ for some $s$, a section of $B(U)$ for some $U \ni x$.
+Since $j^!B$ is a sheaf,we know that $j^!B \cong \Gamma Et j^!B$. We show that $\Gamma Et j^!B$ is a subsheaf of $j^*B$ and for this is suffices to show that $\Gamma Et j^!B$ is a subpresheaf; that is, that for $V$ open in $Z$, $\Gamma Et j^!B(V) \subseteq j^*B(V)$ and that the restrictions maps of $\Gamma Et j^!B$ agree with those of $j^*B$.\\
 
-\newpage
-3.5 Let $h: \hookrightarrow X$ be an inclusion map.\\ 
-(a) Show that there are natural isomorphisms 
-\begin{itemize}
-	\item $h_*h^* \cong id \cong h_!h^*$ if $h$ is open;
-	\item $h_*h^* \cong h_*h^!$ is $h$ is closed.
-\end{itemize}
-3.5 (b) If $h: Z \hookrightarrow X$ is locally closed, prove that the definitions of $h_!$ and $h^!$ do not depend on the choice of the factorization $h= i \circ j$. Also prove that $h_!h^! \cong id$.\\
-3.5 (c) Conclude that for a locally closed subspace $h: Z \hookrightarrow X$, 
-\begin{itemize}
-	\item $h_! \cong h_!$ and $h^! \cong h^*$ if $h$ is open;
-	\item $h_! \cong h_*$ and $h^! \cong h^!$ if $h$ is closed. 
-\end{itemize}
-3.5 (d) For two composable locally closed inclusions $W \xhookrightarrow{k} Z \xhookrightarrow{h} X$, show that $h_!k_! \cong (hk)_!$ and $k^!h^! \cong (hk)^!$.
+Let $V$ be open in $Y$, i.e. $V=Z\cap U$ for some $U$ open in $Y$. We have
+\[j^*B(V)=\{x \mapsto germ_x(s) \mid germ_x(s) \in Et(B)\text{ and }x \in V\}\]
+and 
+\[\Gamma Etj^!B(V)=\{x \mapsto germ_x(s) \mid germ_x(s) \in Et(B)\text{, }x \in V \text{ and } supp(s) \subseteq Z\}\]
+
+so that  $\Gamma Et j^!B(V) \subseteq j^*B(V)$. Moreover, the restriction maps agree since they are both restrictions of functions. Then  $\Gamma Et j^!B \cong j^!B$ is a subsheaf of $j^*B$.
+
+
+
+
+
+%\newpage
+%3.5 Let $h: \hookrightarrow X$ be an inclusion map.\\ 
+%(a) Show that there are natural isomorphisms 
+%\begin{itemize}
+%	\item $h_*h^* \cong id \cong h_!h^*$ if $h$ is open;
+%	\item $h_*h^* \cong h_*h^!$ is $h$ is closed.
+%\end{itemize}
+%3.5 (b) If $h: Z \hookrightarrow X$ is locally closed, prove that the definitions of $h_!$ and $h^!$ do not depend on the choice of the factorization $h= i \circ j$. Also prove that $h_!h^! \cong id$.\\
+%3.5 (c) Conclude that for a locally closed subspace $h: Z \hookrightarrow X$, 
+%\begin{itemize}
+%	\item $h_! \cong h_!$ and $h^! \cong h^*$ if $h$ is open;
+%	\item $h_! \cong h_*$ and $h^! \cong h^!$ if $h$ is closed. 
+%\end{itemize}
+%3.5 (d) For two composable locally closed inclusions $W \xhookrightarrow{k} Z \xhookrightarrow{h} X$, show that $h_!k_! \cong (hk)_!$ and $k^!h^! \cong (hk)^!$.

@@ -93,25 +93,39 @@ Since $R$ is a sheaf, let $a$ e the unique amalgamation. We want to show $a \in 
 
 \underline{$P \hookrightarrow \tilde{P}$ has the unique universal property of Corollary 2.10}:\\
 
-Let $i: P \hookrightarrow \tilde{P}$ be the map that injects $P(U)$ into $\tilde{P}(U)$. We must show that for a map between presheaves, $\phi: P \rightarrow Q$, where $Q$ is a sheaf, there is a unique $\tilde{\phi}$ such that $\tilde{\phi} \circ i = \phi$. \\
-The universal property of $(P, \eta_P)$ implies that for a map $\phi: P \rightarrow Q$, there is a unique map $\hat{\phi}: \Gamma EtP \rightarrow Q$ such that the following commutes:
+Let $i: P \hookrightarrow \tilde{P}$ be the map that injects $P(U)$ into $\tilde{P}(U)$. We must show that for a map between presheaves, $\phi: P \rightarrow Q$, where $Q$ is a sheaf, there is a unique $\tilde{\phi}$ such that $\tilde{\phi} \circ i = \phi$: \\
+
 
 \[
 \begin{tikzcd}
-P \arrow[r,"\phi"] \arrow[d, "\eta_p"']
+P \arrow[r,"\phi"] \arrow[d, hook, "i"']
 & Q \\
-\Gamma EtP \arrow[ru, "!", "\hat{\phi}"', dashed]
+\tilde{P} \arrow[ru, "!", "\tilde{\phi}"', dashed]
 \end{tikzcd}
 \]
 
-Then it suffices to find a unique map, $f$, from $\tilde{P} \rightarrow \Gamma Et P$ such that $\eta_p = f \circ i$, since that will imply the follow diagram commutes (in particular, $\phi = \hat{\phi} \circ f \circ i$, so that $\tilde{\phi} = \hat{\phi} \circ f$ obtains the result):
+So let $Q$ be a sheaf and $\phi:P \rightarrow Q$ be a morphism. For each open set $U \subseteq X$, we define $\tilde{\phi}_U: \tilde{P}(U) \rightarrow Q(U)$ as follows: let $s \in \tilde{P}(U)$ and let $\cup_{x \in U} W_x$ be a cover of $U$ such that $(s\mid_{W_x}) \in P(W_x)$ for each $x \in U$. Consider the family $\phi_{W_x}(s\mid_{W_x})$ for $x \in U$. This family is compatible because commutativity of the restriction maps implies $(s\mid_{W_x})\mid_{W_x\cap W_y}=(s\mid_{W_y})\mid_{W_x\cap W_y}=s\mid_{W_x\cap W_y}$ and naturality of $\phi$ implies for $x,y \in U$:
+ \[\phi(s\mid_{W_x})\mid_{W_x\cap W_y}=\phi((s\mid_{W_x})\mid_{W_x\cap W_y})=\phi(s\mid_{W_x\cap W_y})\]
+ \[=\phi((s\mid_{W_y}\mid_{W_x\cap W_y}))=\phi(s\mid_{W_y})\mid_{W_x\cap W_y}.\]
+
+Then since $Q$ is a sheaf, let $t \in Q(U)$ be the unique amalgamation of the $\phi_{W_x}(s\mid_{W_x})$'s and define $\tilde{\phi}(s)=t$. In fact, by naturality of $\tilde{\phi}$, we must choose the amalgamation to ensure that the following commutes for each $W_x$:  
 
 \[
 \begin{tikzcd}
-\tilde{P} \arrow[rd, "!", "f"', dashed] 
-& P \arrow[l, "i"'] \arrow[r,"\phi"] \arrow[d, "\eta_p"']
-& Q \\
-& \Gamma EtP \arrow[ru, "!", "\hat{\phi}"', dashed]
+s \in \tilde{P}(U) \arrow[r, "\tilde{\phi}_U"] \arrow[d, "\rho"']
+& Q(U) \ni t \arrow[d, "\rho"] \\
+(s\mid_{W_x})\in \tilde{P}(W_x) \arrow[r, "\tilde{\phi}_{W_x}"']
+& Q(W_x) \ni \tilde{\phi}(s\mid_{W_x}) = \phi(s\mid_{W_x})
 \end{tikzcd}
 \]
+
+since the bottom row must be $\tilde{\phi}(s\mid_{W_x})=\phi(s\mid_{W_x})$ by the requirement that $\tilde{\phi} \circ i = \phi$. So then uniqueness of $\tilde{\phi}$ is implied so long as $\tilde{\phi}$ is well-defined.\\
+
+To see that $\tilde{\phi}$ is well-defined, let $\cup_{x \in U} V_x$ be another cover of $U$ with the property that $(s\mid_{V_x}) \in P(V_x)$, so that $ \phi_{V_x}(s\mid_{V_x})$ is again a compatible family. We must show that $t$ is also the amalgamation of this family, i.e., $t\mid_{V_x} = \phi_{V_x}(s\mid_{V_x})$ for each $V_x$.\\
+
+Consider the cover of $U$ formed by the refinement of the $W_x$'s and $V_x$'s, $U = \cup_{x \in U} W_x \cup_{x \in U} V_x$. This contains the compatible family \[\{\{\phi(s\mid_{W_x})\}_{x\in U},\{\phi(s\mid_{V_x})\}_{x\in U}\}\].
+
+The amalgamation of this family, say $\bar{t}$, must have the property that $\bar{t}\mid_{W_x}=\phi(s\mid_{W_x})$, and since $Q$ is a sheaf, hence separated, this implies that $\bar{t}=t$. Then $t\mid_{V_x} = \phi_{V_x}(s\mid_{V_x})$ for each $V_x$, so $\tilde{\phi}$ is well-defined. In particular, note that $\tilde{\phi} \circ i = \phi$, since $s \in P(U)$ implies that $U$ is a cover of $U$ for which $s \mid_U \in P(U)$ so $\tilde{\phi}(s)=\phi(s\mid_U)=\phi(s)$.\\
+
+Then $\tilde{\phi}$ is the required unique sheaf map satisfying $\tilde{\phi} \circ i = \phi$, so $\tilde{P}$ is the associated sheaf of $P$. 
 

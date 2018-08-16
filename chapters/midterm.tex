@@ -1,17 +1,85 @@
-1(a)  You have the correct space; can you just give the abelian group structure on the space in terms of the group multiplication and unit(s)? What you write is not entirely clear to me, and once you write down the groups structure, you may agree that there are better ways to say this.\\
+1(a). Let $A$ be an Abelian group and $\Delta A$ the constant sheaf on a space $X$. Describe the structure on $Et(\Delta A)$ that corresponds to $\Delta A$ being a sheaf of Abelian groups. \\
 
-1(b) is fine, but do read my comments.\\
 
-2(a)  I just added what I would have liked to see as final conclusions os that things becomes easier for the next part. Also, for any map $f:E \rightarrow X$, the presheaf of sections is always a sheaf. The associated etale space won't be homeomorphic to E though if f wasn't etale.\\
+\textit{You have the correct space; can you just give the abelian group structure on the space in terms of the group multiplication and unit(s)? What you write is not entirely clear to me, and once you write down the groups structure, you may agree that there are better ways to say this.}\\
+  
 
-2(b) just fix the case x=0 at the end\\
+If $germ_y(s)$ and $germ_x(t)$ are both points in $Et(\Delta A)$, corresponding to $a,b \in A$, respectively, then we can use the structure of $A$ to add them iff $x=y$. Define $germ_y(s) + germ_y(t) = germ_y(u)$, where $germ_y(u)$ corresponds to the element $a + b \in A$. This gives each stalk of $Et(\Delta A)$ an Abelian group structure, inherited directly from the group structure of $A$ (and with unit $germ_y(e)$, where $e$ corresponds to $0_A$).\\
+  
+  
+\newpage
+1(b). Let $X$ be the two-point space with the discrete topology. Give the functor description of the sheaf $\Delta A$ on $X$ in full detail and give the Abelian group structure on each $\Delta A(U)$ for $U$ open in $X$.\\
 
-3.  I corrected your associated sheaf: if you don't have enough amalgamations, you need to add them in order to get a sheaf, but in your case, the problem was that you had too many amalgamations. In that case you need to identify them. In order to see this, you would need to think a bit more about the germs at a point x in X. I indicated how you can think about that. See whether this makes sense.
-You can redo the unit map on the next page. Your construction was correct, so just calculate what the result is in this case.\\
+ \textit{1b is fine, but do read my comments.}
 
-4(i).  I don't think you had realized what the map gamma really is. This is where you miss the point set topology course. I should have given you a bit more of a picture with it.I have now drawn the picture in the margin. The idea is that you map the real line  to the circle by  sending each interval [a,a+1) 1-1 to the circle and then just keep repeating so as a fiber bundle it looks like a spiral.With the image and info added, have another look at this problem. You really need to keep this image in mind; otherwise you can make mistakes with the algebra.So redo this...\\
+\newpage
+2(a)  Let $E$ be the quotient space of $\mathbb{R} \amalg \mathbb{R}$ by the relation that identifies $x$ in the first copy with $x$ in the second when $x \leq 0$ and let $\pi_E: E \rightarrow \mathbb{R}$ be the projection map. Describe the presheaf of sections $\Gamma (\pi_E)$ on $E$.\\
 
-5. I will still send you my feedback on the rest of question 5 as well, but that part was OK, so you won't need to work on it. 5(c) is OK.\\
+\textit{I just added what I would have liked to see as final conclusions so that things becomes easier for the next part. Also, for any map $f:E \rightarrow X$, the presheaf of sections is always a sheaf. The associated etale space won't be homeomorphic to E though if f wasn't etale.}\\
 
-6. complete your proof that these two sheaves are not the same, by showing that something is in one and not in the other.
+First note that $\pi_E$ is not \'etale because every neighborhood of $0$ contains $x_a > 0$ and $x_b > 0$ such that $\pi(x_a) = 0 = \pi(x_b)$, where $x_a$and $x_b$ are distinct elements of $E$, occurring in each of the copies of $\mathbb{R}$. Then there is no neighborhood of $0$ for which $\pi_E$ restricts to a  homeomorphism, so $\pi_E$ is not \'etale (and thus $Et(\Gamma \pi_E)$ is not isomorphic to $E$).\\
 
+Let $U \subseteq \mathbb{R}$ and let $f$ be a section of $\Gamma \pi_E(U)$. If $U$ is such that $x < 0$, $\forall x \in U$, then $f$ must send $x \mapsto x_{ab}$ in $E$, where $x_{ab}$ is the unique element in $E$ such that $\pi_E(x_{ab})=x$; that is, $\Gamma\pi_E(U) = \{f_{ab}\}$, where $f_{ab}$ is the function $x \mapsto x_ab$, $\forall x \in U$.\\
+
+If $x >0$, $\forall x \in U$, there are two choices for $f$: either $f(x) = x_a$ or $f(x)=x_b$, where $x_a$ and $x_b$ are the two elements in $E$ such that $\pi_E(x_a)=x=\pi_E(x_b)$, since $f$ being continuous and $f(x)=x_a$ (or $f(x)=x_b$) for some $x \in U$ implies $f(x)=x_a$ (or $f(x)=x_b$) for all $x \in U$. Then  $\Gamma\pi_E(U) = \{f_a,f_b\}$, where $f_a$ is the function $x \mapsto x_a$ and $f_b$ is the function $x \mapsto x_b$ \\
+
+If $0 \in U$, then $\forall x \in U$ such that $x \leq 0$, $f(x)$ must be $x_{ab}$ and for $\forall x>0$, either $f(x)=x_a$ or $f(x)=x_b$. Since $f$ must be continuous, if $f(x)=x_a$ for any $x>0$, then we must have $f(x)=x_a$ for all $x >0$ and likewise if $f(x)=x_b$. Then $\Gamma\pi_E(U)=\{g_a,g_b\}$, where $g_a$ is the function \\
+$g_a(x) = \begin{cases}
+x_{ab} & x \leq 0\\
+x_a &  x >0
+\end{cases},
+$ and $g_b$ is the function
+$g_b(x) = \begin{cases}
+x_{ab} & x \leq 0\\
+x_b &  x >0
+\end{cases}.
+$
+
+\newpage
+2(b) Describe the corresponding \'etale space $Et(\Gamma (E))$ together with the counit of the adjunction, $Et \dashv \Gamma $ at the space.\\
+
+\textit{just fix the case x=0 at the end}\\
+
+Let $x_0 \in \mathbb{R}$. If $x_0 <0$, then $\Gamma E_{x_0}$ has a single germ, represented by $(f_{ab}, U)$ for some $U \ni x_0$, with $x < 0$, $\forall x \in U$. If $x_0 >0$, then $\Gamma E_{x_0}$ has two germs represented by $(f_a,V)$ and $(f_b,V)$, where $V$ is some neighborhood of $x_0$ with $x>0$ for every $x \in V$. If $x_0=0$, then again $\Gamma E_{x_0}$ has two germs represented by $(g_a, W)$ and $(g_b,W)$, where $W$ is some neighborhood of $x$.\\
+
+The counit of the adjunction is the map $\epsilon_E: Et \Gamma_E \rightarrow E$ given by $\epsilon_E(germ_x(s))=s(x)$. If $x <0$, then $\epsilon_E(germ_x(f_{ab}))=x_{ab}$. If $x>0$, then we have $\epsilon_E(germ_x(f_a))=x_a$ and $\epsilon_E(germ_x(f_b))=x_b$. If $x=0$, then $\epsilon_E(germ_0(g_a))=g_a(0)=0_{ab}$ and $\epsilon_E(germ_0(g_b))=g_b(0)=0_{ab}$.
+
+
+\newpage
+3.  Give an example of a presheaf that is not a sheaf and find its associated sheaf together with the unit of adjunction at this presheaf.\\
+
+
+\textit{I corrected your associated sheaf: if you dont have enough amalgamations, you need to add them in order to get a sheaf, but in your case, the problem was that you had too many amalgamations. In that case you need to identify them. In order to see this, you would need to think a bit more about the germs at a point x in X. I indicated how you can think about that. See whether this makes sense. You can redo the unit map on the next page. Your construction was correct, so just calculate what the result is in this case.}\\
+
+
+Let $X$ be a topological group. Define a presheaf on $X$ by $P(U)=\{0\}$ if $U$ is an open set in $X$ not equal to $X$ and $P(X) = \mathbb{Z}$. Let $\rho_{XX} = id_\mathbb{Z}$ and all other restriction maps be constant (i.e., the zero map). Then $P$ is not a sheaf because for any open cover $\cup_{i \in I} U_i$ of $X$, the family of elements given by $a_i =0$, $\forall i \in I$ is compatible. However, $\forall z \in \mathbb{Z}$, $z \mid_{U_i} = a_i =0$, so that $P$ has too many amalgamations.\\
+
+To describe the associated sheaf of $P$, we must first describe $Et(P)$. Let $x$ be in $X$ and suppose $U$ is an open neighborhood of $x$. If $s \in P(U)$ and $U \neq X$ then $s=0$. If $U = X$, then for all $t \in P(X)$, $t\mid_V = 0$, for all $V \subset X$, so that each stalk of $P$ has only the zero section. The associated sheaf of $P$, $\Gamma Et P$, is defined for $U$ open in $X$ as $\Gamma EtP (U) = \{f: U \rightarrow Et(P): f$ is continuous and $\pi_P \circ f = id_U\}$. For every $U$ in $X$ there is exactly one such function, namely $x \mapsto germ_x(0)$. For each open $U \subseteq X$, write $f_U$ for the unique section of $\Gamma EtP(U)$. If $\cup_{i \in I} U_i$ is an open cover of $U \subseteq X$, then there is only family (since each $\Gamma EtP(U_i)$ only has one element), and it is compatible since $f_{U_i}\mid_{U_i \cap U_j} = f_{U_j}\mid_{U_i \cap U_j} =x \mapsto germ_x(0)$. Moreover, the unique section of $\Gamma EtP(U)$ is an amalgamation since $f_U\mid_{U_i} = f_{U_i}, \forall i$. Since $\Gamma EtP(U)$ has only one section, this amalgamation must be unique, so $\Gamma EtP$ is a sheaf.\\
+
+The unit of the adjunction $\eta_P: P \rightarrow \Gamma EtP$ is given by $\eta_{P,U}(s)= x \mapsto germ_x(s)$. For $U \neq X$, this is a bijection sending the unique section of $P(U)$ to the unique section of $\Gamma EtP(U)$, i.e. $\eta_{P,U}(0)= x \mapsto germ_x(0)$. For $U = X$, this is the map sending each section of $P(X)$, i.e. each $z \in \mathbb{Z}$, to $germ_x(0)$. 
+
+\newpage
+4(i).  Let $\gamma: \mathbb{R} \rightarrow S^1$ be the \'etale map defined by $\gamma(r) = (cos(2\pi r), sin(2\pi r))$.\\
+
+\textit{I don't think you had realized what the map gamma really is. This is where you miss the point set topology course. I should have given you a bit more of a picture with it.I have now drawn the picture in the margin. The idea is that you map the real line  to the circle by  sending each interval [a,a+1) 1-1 to the circle and then just keep repeating so as a fiber bundle it looks like a spiral.With the image and info added, have another look at this problem. You really need to keep this image in mind; otherwise you can make mistakes with the algebra.So redo this...}\\
+
+Sine $\gamma$ is \'etale, $Et \Gamma Et \gamma \cong Et(\gamma)$, so it suffices to describe the stalks of $Et(\gamma)$. Fix a point $x$ in $S^1$ and suppose $x$ is given by $(cos\theta, sin\theta)$ for $\theta \in [0,2\pi)$. The fiber of $\gamma$ over $x$ is $\gamma^{-1}(x)=\{r \in \mathbb{R} \mid (cos(2\pi r), sin(2\pi r)) = (cos\theta, sin\theta)\}$. Note that if $r_1$ and $r_2$ are both in $\gamma^{-1}(x)$, then $r_1-r_2=m$ for some $m in \mathbb{Z}$.\\
+
+4iii). Let $\delta:S^1 \rightarrow S^1$ be the \'etale map given by $\delta(cos(\theta), sin(\theta))=(cos(2\theta), sin(2\theta))$.\\
+
+Again we describe the stalks of $Et(\delta)$. If $x_0 = (cosx,sinx) \in S^1$, then the fiber of $\delta$ over $x_0$ is $\{(cos\theta, sin\theta) \mid (cos(2\theta), sin(2\theta))=(cos(x), sin(x)\} = \{(cos\frac{x}{2}, sin\frac{x}{2}), (cos\frac{-x}{2}, sin\frac{x}{2})$.\\
+
+4iv) Let $\phi: S^1 \coprod S^1 \rightarrow S^1$ be the \'etale map that is equal to the identity in the first component and $(cos2\theta, sin2\theta)$ in the second. 
+
+\newpage
+5. \textit{I will still send you my feedback on the rest of question 5 as well, but that part was OK, so you won't need to work on it. 5(c) is OK.}\\
+\newpage
+6. Give an example of a closed inclusion $j: X \hookrightarrow Y$ with an Abelian sheaf $B$ on $Y$ such that $j^*B$ is not equal to $j^!B$.\\
+
+\textit{Complete your proof that these two sheaves are not the same, by showing that something is in one and not in the other.}\\
+
+Let $Y=\mathbb{R}$ and let $B$ be the sheaf that assigns to $U \subseteq \mathbb{R}$ the set of continuous functions from $U \rightarrow \mathbb{R}$ (with restriction maps being the normal restriction of functions). Let $X$ be the compact subset $[0,1]$ of $\mathbb{R}$. Then $B$ is an Abelian sheaf since the set of continous functions on an open set into $\mathbb{R}$ form an algebra, hence an Abelian group. Let $j:X \hookrightarrow Y$ be the inclusion map. \\
+
+Then the inverse image sheaf, $j^*B$ on $X$ is just the restriction of $B$ to $X$, that is, $j^*B(U) = \{f:U \rightarrow \mathbb{R} \mid f$ is continuous $\}$ for U, an open subset of $X$. The sheaf $j^!B(U)$ however is given by $j^!B(U) =\{f \in B(W) \mid supp(f) \subseteq [0,1] \}$ for $U$ an open subset of $X$ and $W=U \cup \mathbb{R} \setminus [0,1]$.\\
+
+Let $U = X =[0,1]$. Then any $g \in j^!B(U)$ must be continuous on $W = \mathbb{R}$ with support in $[0,1]$. Let $g: [0,1] \rightarrow \mathbb{R}$ be the function $x \mapsto 1$, the constant 1 function. Then $f$ is continuous on $U = [0,1]$, so $f \in j^*B(U)$. But any extension of $f$ to $W = \mathbb{R}$ with support in $[0,1]$ would not be continuous, so $f \notin j^!B(U)$. Then $ j^*B(U) \neq  j^!B(U)$.

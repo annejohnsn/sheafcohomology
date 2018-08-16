@@ -12,13 +12,16 @@
 \usepackage{color,soul}
 \usepackage{tikz-cd}
 \usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usepackage{nomencl}
+\makenomenclature
 
 \theoremstyle{definition}
 \newtheorem{theorem}{Theorem}[chapter] 
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem*{corollary*}{Corollary}
 \newtheorem{proposition}{Proposition}[chapter]
-\newtheorem{definition}{Definition}[chapter]
+\newtheorem{definition}{Definition} [section]
+\newtheorem*{definition*}{Definition}
 \newtheorem{example}{Example}[definition]
 \newtheorem{construction}{Construction}[chapter]
 
@@ -36,6 +39,18 @@
 %\chapter*{Acknowledgements}
 %\tableofcontents
 
+%\input{chapters/notation} - X,Y topological space
+
+%\chapter*{Definitions}
+%\input{chapters/section0d}
+%\input{chapters/section1d}
+%\input{chapters/section2d}
+%\input{chapters/section3d}
+%\input{chapters/section4d}
+%\chapter*{Theorems}
+%\input{chapters/section2t}
+%\input{chapters/section3t}
+%\input{chapters/section4t}
 \chapter*{Exercises}
 \input{chapters/section2}
 \input{chapters/section3}
@@ -44,6 +59,8 @@
 \input{chapters/section8}
 \chapter*{Midterm}
 \input{chapters/midterm}
+%\chapter*{Presentation}
+%\input{chapters/presentation}
 
 %\appendix
 %\chapter{Appendix}

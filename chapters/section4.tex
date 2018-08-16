@@ -1,18 +1,40 @@
-\newpage
+ \newpage
 \section*{Section 4}
 4.1 (a) Show that with the notation as above, $\Gamma(-, \pi)$ is indeed isomorphic to the sheaffication of $P$. \\
-4.1(b) Show that the $coker(\alpha)$ has the following universal property: given any other sheaf $H$, a map $\chi: G \rightarrow H$ factors through $coker(\alpha)$ if and only if $\chi \circ \alpha = 0$.\\
-4.1(c) Show that $coker(\alpha)_x = coker(\alpha_x)$.
+
+Since $\Gamma(-, \pi)$ is the sheaf of sections of $\pi: Et(G)/R \rightarrow X$ and the associated sheaf of $P$ is the sheaf of sections of $\pi_P:Et(P) \rightarrow X$, it suffices to show that $Et(G)/R \cong Et(P)$ and for this it suffices to show the stalks are isomorphic, i.e., $G_x/R \cong P_x$. \\
+
+Define a map $\phi: G_x \rightarrow P_x$ by $\phi(germ_x(s)) = germ_x(\overline{s})$, where $\overline{s}$ is the equivalence class of $s$ in  $G(U)/im(\alpha_U)$, where $(U,x)$ is a representative of $germ_x(s)$.
+\\\hl{Show $\phi$ is well-defined, i.e., if $(V,t)$ is also a representative of $germ_x(s)$ then $germ_x(\overline{s}) =germ_x(\overline{t})$.
+Then show that $\phi(germ_x(s)) = \phi(germ_x(t)))$ iff there exists a neighborhood $W$ of $x$ such that $s\mid_W = t\mid_W$. Then the kernel of $\phi$ is $R$, so the result follows.}
+ 
+
 
 \newpage
-4.2 Show that \textbf{Ab(X)} is an Abelian category with kernel, cokernel and sum defined as above.
+4.1(b) Show that the $coker(\alpha)$ has the following universal property: given any other sheaf $H$, a map $\chi: G \rightarrow H$ factors through $coker(\alpha)$ if and only if $\chi \circ \alpha = 0$.\\
+
+(Forward direction) Let $\alpha:F \rightarrow G$ and $\chi:G \rightarrow H$ and suppose $\chi \circ \alpha =0$. Then for $U \in X$, $ker(\chi_U) = im(\alpha_U)$. By the first isomorphism theorem, $\chi_U(G) \cong G(U)/ker(\chi_U) = G(U)/im(\alpha_U) = coker(F(U) \xrightarrow{\alpha_U} G(U)) $, so that $\chi = g \circ f$, where $f:G \rightarrow coker(\alpha)$ is the projection map and $g:coker(\alpha) \rightarrow H$ is an isomorphism.\\
+
+(Backwards direction) Let $\alpha:F \rightarrow G$ and $\chi:G \rightarrow H$ and suppose $\chi= g \circ f$ for some $f:G \rightarrow coker(\alpha)$ and $g:coker(\alpha) \rightarrow H$. Note that $f \circ \alpha = 0$, since $f_U$ has codomain $coker(F(U) \xrightarrow{\alpha_U} G(U)$ for $U \in X$. Then $\chi \circ \alpha = g \circ f \circ \alpha = g \circ 0 =0$.
+
+\newpage
+4.1(c) \hl{Show that $coker(\alpha)_x = coker(\alpha_x)$}.
+
+\newpage
+4.2 Show that \textbf{Ab(X)} is an Abelian category with kernel, cokernel and sum defined as above.\\
+
+We first show that \textbf{Ab(X)} has a $0$ object. Let $\Delta \{*\}$ be the constant sheaf on a singleton set. Then for $U \subseteq X$,  $\Delta \{*\}(U)$ is the trivial group and every restriction map is the identity, so $\Delta \{*\} \in \textbf{Ab(X)}$. Moreover, for $A \in \textbf{Ab(X)}$, there is exactly one map from $A(U) \rightarrow \Delta \{*\}(U)$ for every open $U \subseteq X$, namely the constant $0$-map, and there is also exactly one map from $\Delta \{*\}(U) \rightarrow A(U)$ since group homomorphism must send identity to identity. Then $\Delta \{*\}$ is both initial and terminal, and so serves as the $0$ element in \textbf{Ab(X)}. We can now define the $0$ morphism in \textbf{Ab(X)} as the map defined for $A,B \in \textbf{Ab(X)}$ and $U \in X$, open, by $a \in A(U) \mapsto 0_{B(U)}$.\\
+
+Let us define the sum of two Abelian sheaves $A$ and $B$ by $A(U) \oplus B(U)$ for $U$ open in $X$, as in the notes. Then this gives the biproduct of $A$ and $B$ in \textbf{Ab(X)}. We know from the notes that $A \oplus B$ is a sheaf and we observe that for $U \subseteq X$, $A(U) \oplus B(U)$ has an Abelian group structure: let $(a,b)$ and $(a',b')$ be elements of $A(U) \oplus B(U)$ for some $U$. Then $(a,b) + (a',b') = (a +a', b+b') = (a'+a,b'+b) = (a',b') + (a,b) \in A(U) \oplus B(U)$, since $A(U)$ and $B(U)$ are Abelian groups. This also implies $(a,b) +(0_{A(U)}, 0_{B(U)}) = (a,b) = (0_{A(U)}, 0_{B(U)}) + (a,b)$. To see that this is a biproduct, let $p_j: A_1 \oplus A_2 \rightarrow A_j$ be the map defined on $U \subseteq X$ as the projection map $p_{U,j}: A_1(U) \oplus A_2(U) \rightarrow A_j(U)$ and $i_j$ be the map defined on $U \subseteq X$ as the injection map $i_j(U): A_j(U) \rightarrow A_1(U) \oplus A_2(U) $ for $j \in \{1,2\}$ and $A_j \in \textbf{Ab(X)}$. Then since $p_{U,j}$ and $i_{U,j}$ give the product and coproduct on each $A_1(U) \oplus A_2(U)$, viewed as elements in the category of Abelian groups, their collection gives the product and coproduct on $A_1 \oplus A_2$ (given a map into or out of the biproduct, find a new map that factors through $p_j$ or $i_j$ respectively, by taking the collection of maps implied by the universal property of each $p_{U,j}$ or $i_{U,j}$).\\
+
+To see that \textbf{Ab(X)} has kernels, note that if $A,B \in \textbf{Ab(X)}$ and $\phi: A \rightarrow B$, then $\phi$ has a kernel when everything is viewed in the category $\textbf{Sh(X)}$. It remains only to check that $ker(\phi)(U) = \{f \in A(U) \mid \phi_U(f) = 0_{B(U)}\}$ is an Abelian group for all $U$, open in $X$. But $ker(\phi)(U) = ker(\phi_U)$ is the kernel of the group homomorphism $\phi_U$, and so must itself be a subgroup of $A(U)$ for all $U \in X$. Then $ker(\phi) \in \textbf{Ab(X)}$. Likewise, the cokernel of $\phi$ exists in \textbf{Sh(X)}, and so we need only show $coker(\phi)(U)$ is an Abelian group, $\forall U$.
 
 \newpage
 4.3 Let $0 \rightarrow A \hookrightarrow I^0 \rightarrow I^1 \rightarrow ...$ and $0 \rightarrow B \rightarrow B \hookrightarrow J^0 \rightarrow J^1 \rightarrow J^2 \rightarrow ...$ be injective resolutions of $A$ and $B$ respectively. Show that a map $\phi: A \rightarrow B$ extends to a map of complexes:
 \[
 \begin{tikzcd}
 0 \arrow[r] \arrow[d, equal]
-& A \arrow[r] \arrow[d, "\phi", dashed]
+& A \arrow[r] \arrow[d, "\phi"]
 & I^0 \arrow[r] \arrow[d, "\phi^0", dashed]
 & I^1 \arrow[r] \arrow[d, "\phi^1", dashed]
 & I^2 \arrow[r] \arrow[d, "\phi^2", dashed]
@@ -27,26 +49,64 @@
 \end{tikzcd}
 \]
 
-%\[
-%\begin{tikzcd}
-%	 E \arrow[d, "p"]
-%	& A \arrow[r] \arrow[d, "\phi"] 
-%	& I^0 \arrow[r] \arrow[d, "\phi"] 
-%	& I^1 \arrow[r] \arrow[d, "\phi"] 
-%	& I^2 \arrow[r] \arrow[d, "\phi"]
-%	& "..." 
-%	\\
-%	0 \arrow[r] \arrow[d, equal]
-%	& B \arrow[r] \arrow[d, "\phi"] 
-%	& J^0 \arrow[r] \arrow[d, "\phi"] 
-%	& J^1 \arrow[r] \arrow[d, "\phi"] 
-%	& J^2 \arrow[r] \arrow[d, "\phi"]
-%	& "..." 
-%\end{tikzcd}
-%\]
+Since $0 \rightarrow A \hookrightarrow I^0 \rightarrow I^1 \rightarrow ...$ is a resolution, in particular exact, for each $n$, we have an injective map from $A \rightarrow I^n$ given by $d^n$. Since $\phi: A \rightarrow B$, we also have for each $n$, a map from $A \rightarrow J^n$ given by $d^n \circ \phi$. Then injectivity of $J^n$ implies the required map $\phi^n:I^n \rightarrow J^n$: 
 
+\[
+\begin{tikzcd}
+0 \arrow[r] 
+& A \arrow[r, "d^n"] \arrow[d, "d^n \circ \phi"']
+& I^n \arrow[ld, "\phi^n", dashed]
+\\
+& 
+J^n 
+\end{tikzcd}
+\]
+
+\newpage
 4.3 (b) Show that a map of complexes as above induces a homomorphism of cohomology groups 
 \[ H^n(X;A) \rightarrow H^n(X,B)\] 
+
+Note that the above map of chain complexes implies a map for $U \in X$:
+
+\[
+\begin{tikzcd}
+0 \arrow[r] \arrow[d, equal]
+& A(U) \arrow[r] \arrow[d, "\phi_U"]
+& I^0(U) \arrow[r] \arrow[d, "\phi^0_U", dashed]
+& I^1(U) \arrow[r] \arrow[d, "\phi^1_U", dashed]
+& I^2(U) \arrow[r] \arrow[d, "\phi^2_U", dashed]
+& ...
+\\
+0 \arrow[r]
+& B(U) \arrow[r]
+& J^0(U) \arrow[r]
+& J^1(U) \arrow[r]
+& J^2(U) \arrow[r]
+& ...
+\end{tikzcd}
+\]
+
+which for $U = X$ gives the map:
+
+\[
+\begin{tikzcd}
+0 \arrow[r] \arrow[d, equal]
+& \Gamma A \arrow[r] \arrow[d, "\Gamma \phi"]
+& \Gamma I^0 \arrow[r] \arrow[d, "\Gamma \phi^0", dashed]
+& \Gamma I^1 \arrow[r] \arrow[d, "\Gamma \phi^1", dashed]
+& \Gamma I^2 \arrow[r] \arrow[d, "\Gamma \phi^2", dashed]
+& ...
+\\
+0 \arrow[r]
+& \Gamma B \arrow[r]
+& \Gamma J^0 \arrow[r]
+& \Gamma J^1 \arrow[r]
+& \Gamma J^2 \arrow[r]
+& ...
+\end{tikzcd}
+\]
+
+Since $H^n(X;A) = ker(\Gamma I^n \rightarrow \Gamma I^{n+1})) /im (\Gamma I^{n-1} \rightarrow \Gamma I^n) \subseteq \Gamma I^n$ and likewise $H^n(X;B) = ker(\Gamma J^n \rightarrow \Gamma J^{n+1})) /im (\Gamma J^{n-1} \rightarrow \Gamma J^n) \subseteq \Gamma J^n$, the maps $\Gamma \phi^n: \Gamma I^n \rightarrow \Gamma J^n$ implies a homomorphism $\Gamma \phi^n\mid_{H^n(X,A)}: H^n(X;A) \rightarrow \Gamma J^n$. It remains only to check that $im(\Gamma \phi^n\mid_{H^n(X,A)}) \subseteq H^n(X,B)$. Get this by diagram chasing.
 
 \newpage
 4.4(a) Let $f: Y \rightarrow X$ be a map of topological spaces. Show that there is a natural isomorphism $\Gamma_Y \rightarrow \Gamma_X \circ f_*$, 
@@ -56,5 +116,54 @@ Ab(Y) \arrow[rr,"f_*"] \arrow[rd, "\Gamma_Y"'] & & Ab(X) \arrow[ld, "\Gamma_X"]\
 & \textbf{Abelian Groups} 
 \end{tikzcd}
 \]
-4.4 (b) Show that a natural isomorphism between left exact functors $\tau: T_1 \rightarrow  T_2$ induces a natural isomorphism $R^nT_1 \rightarrow R^nT_2$ for each $n$.
+
+We must find $\eta_A$ and $\eta_B$,  isomorphisms, such that the following commutes for all $A,B \in Ab(Y)$ and $\phi:A \rightarrow B$: 
+
+\[
+\begin{tikzcd}
+\Gamma_Y(A) \arrow[r, "\Gamma_Y \phi"] \arrow[d, "\eta_A"']
+&  \Gamma_Y(B) \arrow[d, "\eta_B"] \\
+\Gamma_X  \circ f_*(A) \arrow[r, "\Gamma_x \circ f_* \phi"']
+& \Gamma_X  \circ f_*(B)
+\end{tikzcd}
+\]
+
+By the definition of $\Gamma_{\_}$ and $f_*$, this is the same as finding isomorphisms $\eta_A$ and $\eta_B$ such that the following commutes:
+
+\[
+\begin{tikzcd}
+A(Y) \arrow[r, "\phi_Y"] \arrow[d, "\eta_A"']
+&  B(Y) \arrow[d, "\eta_B"] \\
+A(f^{-1}(X)) \arrow[r, "\phi_{f^{-1}(X)}"']
+& B(f^{-1}(X))
+\end{tikzcd}
+\]
+
+But $f^{-1}(X) = Y$, so taking $\eta_A = \rho_{Y, Y} = id_{A(Y)}$ (likewise for $\eta_B$) implies the result, since $\phi$ is a map $A \rightarrow B$ and so must be natural wrt the restriction maps.
+
+\newpage
+4.4 (b) Show that a natural isomorphism between left exact functors \\
+$\tau: T_1 \rightarrow  T_2$ induces a natural isomorphism $R^nT_1 \rightarrow R^nT_2$ for each $n$.\\
+
+Let $T_1$ and $T_2$ be left exact functors from $\mathcal{C} \rightarrow \mathcal{D}$ and let $\tau: T_1 \rightarrow T_2$ be a natural isomorphism. Let $0 \rightarrow C \rightarrow I^0 \rightarrow I^1 \rightarrow ...$ be an injective resolution of $C$ for some $C \in \mathcal{C}$. Naturality of $\tau$ implies that the following commutes:
+
+\[
+\begin{tikzcd}
+0 \arrow[r] 
+& T_1(C) \arrow[r] \arrow[d, "\rotatebox{90}{\(\sim\)}"']
+& T_1(I^0) \arrow[r] \arrow[d, "\rotatebox{90}{\(\sim\)}"']
+& T_1(I^1) \arrow[r] \arrow[d, "\rotatebox{90}{\(\sim\)}"']
+& T_1(I^2) \arrow[r] \arrow[d, "\rotatebox{90}{\(\sim\)}"']
+& ...
+\\
+0 \arrow[r]
+& T_2(C) \arrow[r]
+& T_2(I^0) \arrow[r]
+& T_2(I^1) \arrow[r]
+& T_2(I^2) \arrow[r]
+& ...
+\end{tikzcd}
+\]
+
+Moreover, since $T_1$ and $T_2$ are both left exact, each row in the above diagram is exact. 
 

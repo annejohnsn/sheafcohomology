@@ -4,10 +4,10 @@
 
 Since $\Gamma(-, \pi)$ is the sheaf of sections of $\pi: Et(G)/R \rightarrow X$ and the associated sheaf of $P$ is the sheaf of sections of $\pi_P:Et(P) \rightarrow X$, it suffices to show that $Et(G)/R \cong Et(P)$ and for this it suffices to show the stalks are isomorphic, i.e., $G_x/R \cong P_x$. \\
 
-Define a map $\phi: G_x \rightarrow P_x$ by $\phi(germ_x(s)) = germ_x(\overline{s})$, where $\overline{s}$ is the equivalence class of $s$ in  $G(U)/im(\alpha_U)$, where $(U,x)$ is a representative of $germ_x(s)$.
-\\\hl{Show $\phi$ is well-defined, i.e., if $(V,t)$ is also a representative of $germ_x(s)$ then $germ_x(\overline{s}) =germ_x(\overline{t})$.
-Then show that $\phi(germ_x(s)) = \phi(germ_x(t)))$ iff there exists a neighborhood $W$ of $x$ such that $s\mid_W = t\mid_W$. Then the kernel of $\phi$ is $R$, so the result follows.}
- 
+Let $\overline{germ_x(s)}$ be an element of $G_x/R$, and let $germ_x(s)$ be a representative, so that if $germ_x(t)$ is another representative of $\overline{germ_x(s)}$, then $\exists W \ni x$ and $f \in F(W)$ such that $s\mid_W - t\mid_W = \alpha_W(f)$, where $s$ and $t$ are representatives of $germ_x(s)$ and $germ_x(t)$ respectively.\\
+
+Let $germ_x(a)$ be an element of $P_x$, represented by $(a,U)$ for some $U \ni x$ and $a \in P(U)  = coker(F(U) \xrightarrow{\alpha_U} G(U)) = G(U)/im(\alpha_U)$. If $(b,V)$ is another representative of $germ_x(a)$, then there exists $W \ni x$ such that $a\mid_W = b\mid_W$, i.e., $a\mid_W$ and $b\mid_W$ are in the same equivalence class of $G(W)/im(\alpha_W)$, i.e., $\exists f \in F(W)$ such that $s\mid_W - t\mid_W = \alpha_W(f)$. Then elements of $G_x/R$ and $P_x$ are both correspond to elements of $G_x$ identified  via the same relation.\\
+
 
 
 \newpage
@@ -18,7 +18,9 @@ Then show that $\phi(germ_x(s)) = \phi(germ_x(t)))$ iff there exists a neighborh
 (Backwards direction) Let $\alpha:F \rightarrow G$ and $\chi:G \rightarrow H$ and suppose $\chi= g \circ f$ for some $f:G \rightarrow coker(\alpha)$ and $g:coker(\alpha) \rightarrow H$. Note that $f \circ \alpha = 0$, since $f_U$ has codomain $coker(F(U) \xrightarrow{\alpha_U} G(U)$ for $U \in X$. Then $\chi \circ \alpha = g \circ f \circ \alpha = g \circ 0 =0$.
 
 \newpage
-4.1(c) \hl{Show that $coker(\alpha)_x = coker(\alpha_x)$}.
+4.1(c) Show that $coker(\alpha)_x = coker(\alpha_x)$.\\
+
+Let $\alpha: F \rightarrow G$ for $F$ and $G$ Abelian sheaves on $X$ and let $P$ be the presheaf given by $P(U)=coker(F(U) \xrightarrow{\alpha_U} G(U))$. Since $\pi_P: Et(P) \rightarrow X$ is \'etale, $Et\Gamma EtP \cong EtP$, so the left-hand side is isomorphic to $P_x$. On the right-hand side, note that $coker(\alpha_x)=coker(F_x \xrightarrow{\alpha_x} G_x) = G_x/Im(\alpha_x)$, so that two points are equivalent in $coker(\alpha_x)$ iff they are both points in $G_x$, say $germ_x(s)$ and $germ_y(t)$, with $germ_x(s) - germ_y(t) \in Im(\alpha_X)$, ie $\exists W \ni x$ and $f \in F(W)$ such that $s\mid_W - t\mid_W = \alpha_W(f)$. This is exactly the relation given by $R$ in the notes, so that the right-hand side is isomorphic to $G_x/R$. Then exercise 4.1(a) implies $coker(\alpha)_x \cong coker(\alpha_x)$.
 
 \newpage
 4.2 Show that \textbf{Ab(X)} is an Abelian category with kernel, cokernel and sum defined as above.\\
@@ -106,7 +108,7 @@ which for $U = X$ gives the map:
 \end{tikzcd}
 \]
 
-Since $H^n(X;A) = ker(\Gamma I^n \rightarrow \Gamma I^{n+1})) /im (\Gamma I^{n-1} \rightarrow \Gamma I^n) \subseteq \Gamma I^n$ and likewise $H^n(X;B) = ker(\Gamma J^n \rightarrow \Gamma J^{n+1})) /im (\Gamma J^{n-1} \rightarrow \Gamma J^n) \subseteq \Gamma J^n$, the maps $\Gamma \phi^n: \Gamma I^n \rightarrow \Gamma J^n$ implies a homomorphism $\Gamma \phi^n\mid_{H^n(X,A)}: H^n(X;A) \rightarrow \Gamma J^n$. It remains only to check that $im(\Gamma \phi^n\mid_{H^n(X,A)}) \subseteq H^n(X,B)$. Get this by diagram chasing.
+Since $H^n(X;A) = ker(\Gamma I^n \rightarrow \Gamma I^{n+1})) /im (\Gamma I^{n-1} \rightarrow \Gamma I^n) \subseteq \Gamma I^n$ and likewise $H^n(X;B) = ker(\Gamma J^n \rightarrow \Gamma J^{n+1})) /im (\Gamma J^{n-1} \rightarrow \Gamma J^n) \subseteq \Gamma J^n$, the maps $\Gamma \phi^n: \Gamma I^n \rightarrow \Gamma J^n$ implies a homomorphism $\Gamma \phi^n\mid_{H^n(X,A)}: H^n(X;A) \rightarrow \Gamma J^n$. It remains only to check that $im(\Gamma \phi^n\mid_{H^n(X,A)}) \subseteq H^n(X,B)$. Let $\alpha \in H^n(X;A)$. Then $\alpha \in ker(d^{n}:\Gamma I^n \rightarrow \Gamma I^{n+1}) $, so $\Gamma\phi^{n+1} \circ d^{n} (\alpha) =0$. Since the above diagram commutes, this implies $d^n \circ \Gamma \phi^n (\alpha) =0$, so that $\Gamma \phi^n (\alpha) \in ker(d^n:\Gamma J^n \rightarrow \Gamma J^{n+1})$, which implies $\Gamma \phi^n (\alpha) \in H^n(X;B)$. 
 
 \newpage
 4.4(a) Let $f: Y \rightarrow X$ be a map of topological spaces. Show that there is a natural isomorphism $\Gamma_Y \rightarrow \Gamma_X \circ f_*$, 
@@ -165,5 +167,5 @@ Let $T_1$ and $T_2$ be left exact functors from $\mathcal{C} \rightarrow \mathca
 \end{tikzcd}
 \]
 
-Moreover, since $T_1$ and $T_2$ are both left exact, each row in the above diagram is exact. 
+Moreover, since $T_1$ and $T_2$ are both left exact, each row in the above diagram is exact. Then, by analogous argument to 4.3(b), $\tau$ restricts to a natural isomorphism $R^nT_1 \rightarrow R^nT_2$ for each $n$.
 

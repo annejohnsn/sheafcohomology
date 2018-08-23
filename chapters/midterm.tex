@@ -59,17 +59,38 @@ To describe the associated sheaf of $P$, we must first describe $Et(P)$. Let $x$
 The unit of the adjunction $\eta_P: P \rightarrow \Gamma EtP$ is given by $\eta_{P,U}(s)= x \mapsto germ_x(s)$. For $U \neq X$, this is a bijection sending the unique section of $P(U)$ to the unique section of $\Gamma EtP(U)$, i.e. $\eta_{P,U}(0)= x \mapsto germ_x(0)$. For $U = X$, this is the map sending each section of $P(X)$, i.e. each $z \in \mathbb{Z}$, to $germ_x(0)$. 
 
 \newpage
-4(i).  Let $\gamma: \mathbb{R} \rightarrow S^1$ be the \'etale map defined by $\gamma(r) = (cos(2\pi r), sin(2\pi r))$.\\
+4 For each of the following \'etale maps, (a) give the stalks and the global sections for each of these sections and (b) determine whether its sheaf can be given the structure of an Abelian sheaf. If such a structure exists, give one. Otherwise, explain why this is not possible.\\
+
+
+(i).  Let $\gamma: \mathbb{R} \rightarrow S^1$ be the \'etale map defined by $\gamma(r) = (cos(2\pi r), sin(2\pi r))$.\\
 
 \textit{I don't think you had realized what the map gamma really is. This is where you miss the point set topology course. I should have given you a bit more of a picture with it.I have now drawn the picture in the margin. The idea is that you map the real line  to the circle by  sending each interval [a,a+1) 1-1 to the circle and then just keep repeating so as a fiber bundle it looks like a spiral.With the image and info added, have another look at this problem. You really need to keep this image in mind; otherwise you can make mistakes with the algebra.So redo this...}\\
 
-Sine $\gamma$ is \'etale, $Et \Gamma Et \gamma \cong Et(\gamma)$, so it suffices to describe the stalks of $Et(\gamma)$. Fix a point $x$ in $S^1$ and suppose $x$ is given by $(cos\theta, sin\theta)$ for $\theta \in [0,2\pi)$. The fiber of $\gamma$ over $x$ is $\gamma^{-1}(x)=\{r \in \mathbb{R} \mid (cos(2\pi r), sin(2\pi r)) = (cos\theta, sin\theta)\}$. Note that if $r_1$ and $r_2$ are both in $\gamma^{-1}(x)$, then $r_1-r_2=m$ for some $m in \mathbb{Z}$.\\
+(a) Fix a point $x$ in $S^1$ and suppose $x$ is given by $(cos\theta, sin\theta)$ for $\theta \in [0,2\pi)$. The fiber of $\gamma$ over $x$ is $\gamma^{-1}(x)=\{r \in \mathbb{R} \mid (cos(2\pi r), sin(2\pi r)) = (cos\theta, sin\theta)\} = \{\frac{\theta}{2\pi} + n \mid n \in \mathbb{Z}\}$. Then $(Et \Gamma \gamma)_x = \{\sigma_n\}$, where $\sigma_n$ is the function $\theta \mapsto \frac{\theta}{2\pi} + n$ for some $n \in \mathbb{Z}$.\\
 
-4iii). Let $\delta:S^1 \rightarrow S^1$ be the \'etale map given by $\delta(cos(\theta), sin(\theta))=(cos(2\theta), sin(2\theta))$.\\
+Since $\sigma \in \Gamma \gamma(S^1)$ would have to be a continuous function from $S^1 \rightarrow \mathbb{R}$ satisfying $\gamma \circ \sigma = id_{S^1}$, the set $\Gamma \gamma (S^1)$ is the empty set (since any function satisfying $\gamma \circ \sigma = id_{S^1}$ is discontinuous at $\theta = 0$).\\
 
-Again we describe the stalks of $Et(\delta)$. If $x_0 = (cosx,sinx) \in S^1$, then the fiber of $\delta$ over $x_0$ is $\{(cos\theta, sin\theta) \mid (cos(2\theta), sin(2\theta))=(cos(x), sin(x)\} = \{(cos\frac{x}{2}, sin\frac{x}{2}), (cos\frac{-x}{2}, sin\frac{x}{2})$.\\
+(b) Since $\Gamma \gamma (S^1)$ is the empty set, hence cannot contain an identity element, $\Gamma \gamma (S^1)$ cannot be an Abelian sheaf (since there is no way to make $\Gamma \gamma (S^1)$ an Abelian group).
+\newpage`
 
-4iv) Let $\phi: S^1 \coprod S^1 \rightarrow S^1$ be the \'etale map that is equal to the identity in the first component and $(cos2\theta, sin2\theta)$ in the second. 
+4iii) Let $\delta:S^1 \rightarrow S^1$ be the \'etale map given by $\delta(cos\theta, sin\theta)=(cos2\theta, sin2\theta)$.\\
+
+(a) If $x_0 = (cosx,sinx) \in S^1$, then the fiber of $\delta$ over $x_0$ is \[\{(cos\theta, sin\theta) \mid (cos2\theta, sin2\theta)=(cosx, sinx)\} = \{(cos\frac{x}{2}, sin\frac{x}{2}), (cos\frac{-x}{2}, sin\frac{x}{2})\}\]
+Then $(Et \Gamma \gamma)_x = \{germ_x(\sigma), germ_x(-\sigma)\}$, where $germ_x(\sigma)$ is represented by the function $(cosx, sinx) \mapsto (cos\frac{x}{2}, sin\frac{x}{2})$ and $germ_x(-\sigma)$ is represented by the function $(cosx, sinx) \mapsto  (cos\frac{-x}{2}, sin\frac{x}{2})$. Note also that for $U$ open in $S^1$, each $\Gamma \delta (U)$ has these two sections; in particular, the global section is $\{\sigma, -\sigma\}$.\\
+
+(b) $\Gamma \delta$ can be given the structure of an Abelian sheaf by given each $\Gamma \delta (U)$ the structure of $\mathbb{Z}/2$ and letting the restriction maps be restrictions of functions. 
+
+\newpage
+
+4iv) Let $\phi: S^1 \coprod S^1 \rightarrow S^1$ be the \'etale map that is equal to the identity in the first component and $(cos2\theta, sin2\theta)$ in the second. \\
+
+(a) If $x_0 = (cosx,sinx) \in S^1$, then the fiber of $\delta$ over $x_0$ is \[\{(cos\theta, sin\theta) \in  S^1 \coprod S^1  \mid \phi(cos(\theta), sin(\theta))=(cosx, sinx)\}\]
+\[ = \{(cosx_1, sinx_1, (cos\frac{x_2}{2}, sin\frac{x_2}{2}), (cos\frac{-x_2}{2}, sin\frac{x_2}{2})\}\]
+where $(cosx_1, sinx_1)$ is the point $(cosx,sinx)$ in the first component and $(cosx_2,sinx_2)$ is the point $(cosx,sinx)$ in the second component. Then the stalks each contain three germs represented by sending $(cosx, sinx)$ to each of these points. 
+Note then that each $\Gamma \phi (U)$ has three sections for $U$ open in $X$; in particular, $\Gamma \phi (U)$ is $\{\iota, \sigma, -\sigma\}$, where $\iota(cosx, sinx) = (cosx_1,sinx_1)$, $\sigma(cosx,sinx)=(cos\frac{x_2}{2}, sin\frac{x_2}{2})$ and $-\sigma(cosx,sinx)= (cos\frac{-x_2}{2}, sin\frac{x_2}{2})$ \\
+
+(b) $\Gamma \delta$ can be given the structure of an Abelian sheaf by given each $\Gamma \delta (U)$ the structure of $\mathbb{Z}/3$ and letting the restriction maps be restriction of functions.
+
 
 \newpage
 5. \textit{I will still send you my feedback on the rest of question 5 as well, but that part was OK, so you won't need to work on it. 5(c) is OK.}\\

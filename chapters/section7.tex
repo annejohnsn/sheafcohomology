@@ -2,4 +2,27 @@
 \section*{Section 7}
 7.1 Prove Corollary 7.4 (Proper Base Change): For a pullback diagram as in (26) with $f$ and $f'$ proper with Hausdorff fibers, the canonical map 
 \[ p^*(R^nf_*B) \rightarrow R^nf_*^{'}(q^*B)\]
-is an isomorphism for any sheaf $B$ on $Y$. 
+is an isomorphism for any sheaf $B$ on $Y$. \\
+
+We show $p^*(R^nf_*B)_{x'} \cong  (R^nf_*^{'}(q^*B))_{x'}$ for $x' \in X^{'}$. Let $x' \in X'$, $B$ be a sheaf on $Y$ and let the following be a pullback diagram:
+
+
+\[
+\begin{tikzcd}
+(f')^{-1}(x') \in Y' \arrow[r, "q"] \arrow[d, "f'"']
+&  Y \ni f^{-1}(p(x')) \arrow[d, "f"] \\
+x' \in X' \arrow[r, "p"']
+& X \ni p(x')
+\end{tikzcd}
+\]
+
+Note that since the above is a pullback diagram, $q$ gives an isomorphism $q:(f')^{-1}(x') \xrightarrow{\sim} f^{-1}(p(x'))$, which by Prop (4.3) induces an isomorphism $H^n(f^{-1}(p(x'));B\mid_{f^{-1}p(x')}) \xrightarrow{\sim} H^n((f')^{-1}(x'); q^*B\mid_{(f')^{-1}(x')})$. Then we have: 
+
+\begin{align*}
+	p^*(R^nf_*B)_{x'} &\cong (R^nf_*B)_{p(x')} && \text{exercise 3.2} \\
+	&\cong H^n(f^{-1}(p(x')); B\mid_{f^{-1}(p(x'))})  &&(7.3) \\
+	&\cong H^n((f')^{-1}(x'); q^*B\mid_{(f')^{-1}(x')}) && \text{pullback and }(4.3)\\
+	&\cong (R^nf_*^{'}(q^*B))_{x'} && (7.3)\\
+\end{align*}
+
+

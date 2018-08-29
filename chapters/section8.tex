@@ -1,6 +1,15 @@
 \newpage
 \section*{Section 8}
-8.1 Let X be connected and locally simply connected, and choose a base point $x_0$. Show that for any locally constant sheaf (of sets) $A$, the group $\pi_1(X,x_0)$ acts on the stalk $A_{x_0}$. Show that this gives a functor $A \mapsto A_{x_0}$ which is an equivalence of categories between the category of locally constant sheaves on $X$ and the category of sets with a $\pi_1(X,x_0)$-action. 
+8.1 Let X be connected and locally simply connected, and choose a base point $x_0$. Show that for any locally constant sheaf (of sets) $A$, the group $\pi_1(X,x_0)$ acts on the stalk $A_{x_0}$. Show that this gives a functor $A \mapsto A_{x_0}$ which is an equivalence of categories between the category of locally constant sheaves on $X$ and the category of sets with a $\pi_1(X,x_0)$-action. \\
+
+\underline{$\pi_1(X,x_0)$ acts on the stalk $A_{x_0}$}\\
+Let $X$ be a space and let $A$ be a locally constant sheaf on $X$. First note that if $p:[0,1] \rightarrow X$ is any path in $X$ then $p$ determines a bijection from $A_{p(0)} \xrightarrow{\sim} A_{p(1)}$.  Indeed, if $s \in A_{p(0)}$.\\
+Now fix an $x_0 \in X$ and suppose $p:[0,1] \rightarrow X$ is a loop in $X$ based at $x_0$. Then, by the above, $p$ determines an automorphism of $A_{x_0}$. Moreover, if $p_1$ and $p_2$ are two loops in $X$ both based at $x_0$, then they determine the same automorphism of $A_{x_0}$ if they are homotopic. This implies a $\pi_1(X,x_0)$-action on $A_{x_0}$
+
+
+\underline{$F$ restricts to an equivalence of categories}\\
+When $X$ is connected and simply locally connected and the equivalence is given via the functor $A \rightarrow A_{x_0}$
+ Then define a functor $F: LocConSh(X) \rightarrow \textbf{Set}$ from the category of locally constant sheaves on $X$ to $\textbf{Set}$ by $F(A) = A_{x_0}$ for some $x_0 \in X$. If $X$ is connected that this is does not depend on the base point $x_0$
 
 \newpage
 8.2 Prove the following: let $S^d$ be a $d$-dimensional sphere. For any Abelian group $A$, 

@@ -1,9 +1,217 @@
-Let $(M, \rho)$ be an ultrametric space and let $\mathcal{T}$ be the toplogy induced on $M$ by $\rho$. Suppose $(M, \mu, \mathcal{B}_M)$ is a measurable space (note that in an ultrametric space, $\mathcal{B}_M$, the Borel $\sigma$-alegra, is the same as $\mathcal{T}$). 
+\documentclass{beamer}
+\title{Completeness in Generalized Ultrametric Spaces}
+\author{Nathanael Leedom Ackerman\\ presented by Anne Johnson}
+\date{\today}
 
-\begin{theorem}
-Let $(M, \mu, \mathcal{B}_M)$ be a measurable ultrametric space, as above. Let $\Omega$ be the set $\Omega = \{\mu(A) \mid A \subseteq M\}$. Then $\Omega$ is a discrete subset of $\mathbb{R}_{\leq 0}$.   
-\end{theorem}
 
+
+\begin{document}
+\maketitle
+\begin{frame}
+\textit{"The goal of this paper is to characterize the relationship between four important notions of completeness for $\Gamma$- ultrametric spaces: spherical completeness, Cauchy completeness, strong Cauchy completeness and injectivity"}
+\end{frame}
+\begin{frame}
+Instead, we'll talk about:	
+	\begin{itemize}
+		\item equivalence of categories between the category of flabby, separated presheaves on $\Gamma^{op}$ and the category of $\Gamma-$ultrametric spaces and non-expanding maps.
+		\item Injective hulls
+	\end{itemize}	
+\end{frame}
+
+\begin{frame}
+\frametitle{Some background}
+\begin{definition}
+	A partial order $(\Gamma, \leq_{\Gamma})$ is a \textbf{complete lattice} if every subset of $\Gamma$ has a supremum and infimum. 
+	A complete lattice $(\Gamma, \leq_{\Gamma})$ is an \textbf{op-frame} if it satisfies
+	\[(\forall x \in \Gamma, A \subseteq \Gamma) x \vee_\Gamma (\wedge_{\alpha \in A}^{\Gamma}) = \wedge_{\alpha \in A}^\Gamma (x \vee_\Gamma \alpha)\]
+
+\end{definition}
+\end{frame}
+\begin{frame}
+\frametitle{Some background}
+Notation:
+\begin{itemize}
+	\item $(\Gamma, \leq_{\Gamma})$ or $\Gamma$ -- complete lattice, always an op-frame
+	\item  $\bot_{\Gamma}$ -- least element, ie $\wedge^{\Gamma}\{\gamma:\gamma \in \Gamma\}$ 
+	\item $\top_{\Gamma}$ -- greatest element, ie $\vee^{\Gamma}\{\gamma:\gamma \in \Gamma\}$ 
+	\item $\Gamma^{op}$ -- $\Gamma$ but with the order reversed
+\end{itemize}
+
+%Note: $<\Gamma^{op}, \leq_{op}, \wedge>$ is a monodial category when $\Gamma$ is an op-frame
+\end{frame}
+
+\begin{frame}
+\frametitle{Some background}
+
+\begin{definition}
+A \textbf{$\Gamma-$ultrametric space} is a pair $(M,d_M)$, where $M$ is a set and $d_M: M \times M \rightarrow \Gamma$ is a function that satisfies:
+	\begin{itemize}
+		\item $(\forall x,y \in M)$   $d_M(x,y) = \bot \iff x =y$
+		\item $(\forall x,y \in M)$   $d_M(x,y) = d_M(y,x)$
+		\item $(\forall x,y,z,\in M)$ $d_M(x,y) \vee d_M(y,z) \geq d_M(x,z)$
+	\end{itemize}		
+\end{definition}
+
+\begin{definition}
+A \textbf{non-exanding map} between $\Gamma-$ultrametric spaces $(M,d_M)$ and $(N,d_N)$ is a function $f: M \rightarrow N$ such that $(\forall a,b \in M)$ $d_N(f(a),f(b)) \leq d_M(a,b)$		
+\end{definition}	
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Some background}
+A few things to note	
+	\begin{itemize}
+		\item $\Gamma-$ultrametric spaces and non-exanding maps form a category, denoted \textbf{$UMet(\Gamma)$}
+		\item Given a $\Gamma-$ ultrametric space $(M,d_M)$, the balls of fixed radius $\gamma$ for $\gamma \in \Gamma$ also form a generalized ultrametric space,  with the distance function taking values in $\Gamma_\gamma = \{\zeta \in \Gamma : \zeta \geq_\Gamma \gamma\}$
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Some background: closed ball functor}
+	Denote by \textbf{$(M_\gamma,d_{M_\gamma})$} the generalized ultrametric space having points
+	\[M_\gamma = \{B^M(x; \gamma): x \in M\}\]
+	and distance function
+	\[d_{M_\gamma} (B^M(x;\gamma), B^M(y;\gamma)) = d_M(x,y) \vee \gamma\]
+Lastly if $f:(M,d_M) \rightarrow (N,d_N)$ is a map of $\Gamma-$ultrametric spaces,\\ let $f_\gamma:(M_\gamma, d_{M_\gamma}) \rightarrow (N_\gamma, d_{N_\gamma})$ be such that \[f(B^M(x;\gamma)) = B^N(f(x), \gamma)\]\\ Then $f_\gamma$ is non-expanding and well-defined.\\
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Some background: closed ball functor}
+\textbf{Lemma 2.7} $(\cdot)_\gamma$ is a functor from $UMet(\Gamma)$ to $UMet(\Gamma_\gamma)$\\~\
+
+Let's see an example
+\end{frame}
+
+\begin{frame}
+\frametitle{Motivation}
+\textit{"In order to show that each $\Gamma-$ultrametric space has a minimal, strongly Cauchy complete extension, we first show that the category of $\Gamma-$ultrametric spaces is equivalent to the category of flabby separated presheaves on $\Gamma^{op}$."}\\~\
+\begin{itemize}
+	\item Theorem 2.25: a $\Gamma-$ultrametric space is injective if and only if is strongly Cauchy complete.
+	\item Then an injective hull of a $\Gamma$-ultrametric space is a minimal extension that is strongly Cauchy complete
+	\item Idea: show every object in $Flab(\Gamma^{op})$ has an injective hull and use the equivalence.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+More notation:
+\begin{itemize}
+	\item $Flab(\Gamma^{op}):$ the category of flabby separated presheaves on $\Gamma^{op}$
+	\item $Sep(\Gamma^{op}):$ the category of separated presheaves on $\Gamma^{op}$
+	\item $i_\Gamma: Flab(\Gamma^{op}) \rightarrow Sep(\Gamma^{op}):$ the inclusion functor
+\end{itemize}
+\[\]
+First we show an equivalence of categories between $UMet(\Gamma)$ and $Flab(\Gamma^{op})$ via two functors, $F_\Gamma$ and $G_\Gamma$.
+\end{frame}	
+
+
+\begin{frame}
+\frametitle{the functor $F_\Gamma$}
+We define $F_\Gamma: UMet(\Gamma) \rightarrow Flab(\Gamma^{op})$ as follows:
+\begin{definition}
+Let $(M,d_M) \in UMet(\Gamma)$ and define $F_\Gamma(M, d_M)(\gamma) = (M_\gamma,d_{M_\gamma})$. Let the restriction maps be given by: $B(a,\gamma)\mid_{\gamma^*}=B(a,\gamma^*)$ for $\gamma^* \geq \gamma$.
+\end{definition}
+Check that:
+\begin{itemize}
+	\item The restriction maps are well-defined
+	\item $ F_\Gamma(M,d_M)$ is flabby, i.e. if $B(a,\gamma) \in F_\Gamma(M,d_M)(\gamma)$, then there exists $\tilde{\gamma} \leq \gamma \in \Gamma$ such that $B(a, \gamma)\mid_{\tilde{\gamma}} = B(a,\gamma)$
+	\item $ F_\Gamma(M,d_M)$ is separated
+	\item If $f:(M,d_M) \rightarrow (N,d_N)$ is a non-expanding map, then $F_\Gamma(f):F_\Gamma(M,d_M) \rightarrow F_\Gamma(N,d_N)$ is a map of flabby separated presheaves. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{the functor $G_\Gamma$}
+We define $G_\Gamma: Flab(\Gamma^{op}) \rightarrow UMet(\Gamma)$ as follows:
+	\begin{definition}
+		Let $A \in Flab(\Gamma^{op})$ and define $G_\Gamma(A)=(A(\bot), d_{A_\bot})$, where $d_{\bot}(a,b) = \wedge\{\gamma:a\mid_\gamma = b\mid_\gamma\}$.
+	\end{definition}
+	
+Check that:
+	\begin{itemize}
+		\item The distance function satisfies the strong triangle identity
+		\item $(\forall a,b \in A(\bot))$   $d_{\bot}(a,b) = \bot \iff a =b$
+		\item If $A,C \in Flab(\Gamma^{op})$ and $f:A \rightarrow C$ is a map of presheaves then $G_\Gamma(f):G_\Gamma(A) \rightarrow G_\Gamma(C)$ is a non-expanding map.
+			
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{equivalence of categories}	
+\textbf{Claim 3.19}\\ 
+There is a natural isomorphism $\eta: F_\Gamma \circ G_\Gamma \rightarrow id_{Flab(\Gamma^{op})}$ such that $(\forall x \in A(\bot))$  $\eta_A(\{x\})=x$
+when $A \in Flab(\Gamma^{op})$.
+
+Check that:
+\begin{itemize}
+	\item $\eta$ is well-defined and injective (since $A$ being flabby will imply that is surjective)
+	\item $\eta$ is natural
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{equivalence of categories}
+\textbf{Claim 3.20}\\
+There is a natural isomorphism $\epsilon: id_{UMet(\Gamma)} \rightarrow G_\Gamma \circ F_\Gamma$. 
+
+
+\begin{itemize}
+	\item Suppose $(M',d_{M'})=G_\gamma(F_\gamma(M,d_M))$, so that $M'=\{\{a\}: a \in M\}$.
+	\item Check directly that the map given by  $\epsilon_{M,d_m}(a)=\{a\}$ is an isomorphism. Naturality is immediate.
+\end{itemize}
+
+\textbf{Theorem 3.12}\\
+There is an equivalence of categories between $Flab(\Gamma^{op})$ and $UMet(\Gamma)$
+\end{frame}
+
+\begin{frame}
+\frametitle{injective hull}
+\begin{definition}
+Suppose $C$ is a category and $A \in C$. An \textbf{injective hull} for $A$ is a monic $e:A \rightarrow I$ where 
+\begin{enumerate}
+	\item $I$ is injective
+	\item If $k: A \rightarrowtail I'$ is a monomorphism with $I'$ injective, there is a monomorphism $k':I \rightarrowtail I'$ such that $k' \circ e =k$.	
+\end{enumerate}
+\end{definition}
+\[\]
+We show every object of $Flab(\Gamma^{op})$ has an injective hull.
+\end{frame}
+
+\begin{frame}
+\frametitle{injective hull}
+\textbf{Claim 3.23} For every object $\mathcal{F}$ of $Flab(\Gamma^{op})$, the following are equivalent:
+\begin{enumerate}
+	\item $\mathcal{F}$ is injective in $Flab(\Gamma^{op})$.
+	\item $i_\Gamma(\mathcal{F})$ is injective in $Sep(\Gamma^{op})$
+\end{enumerate}
+\[\]
+In fact, this is enough, since we also have \cite{Coulon},\\
+
+\textbf{Claim 3.24} The injective objects of $Sep(\Gamma^{op})$ are exactly the flabby sheaves and every object of $Sep(\Gamma^{op})$ has an injective hull.
+\end{frame}	
+
+\begin{frame}
+\frametitle{injective hull}
+$\mathcal{F} \in Flab(\Gamma^{op})$ is injective $\Rightarrow i_\Gamma(\mathcal{F})$ is injective in $Sep(\Gamma^{op})$ 
 \begin{proof}
-Let $a \in \Omega$ and let $A \subseteq M$ be such that $\mu(A)=a$. 	
-\end{proof}
+Let $A$ be a separated presheaf on $\Gamma$. Define $A^*$ as follows:
+\begin{itemize}
+	\item $A^*(V)=\cup_{U\leq V} A(U) \times \{U\} \times \{V\}$
+	\item If $U \leq V$ and $<x,W,V> \in A^*(V)$ then $<x, W,V>\mid_U = <x\mid_{U\wedge W}, U \wedge W,U> \in A^*(U)$.
+\end{itemize}
+
+Define $m,m^*,e_A$
+\end{proof}	
+\end{frame}
+
+
+\begin{frame}
+\frametitle{references}
+\begin{thebibliography}{1}
+	\bibitem{Ackerman} N.L. Ackerman, "Completeness in Generalized Ultrametric Spaces," p-Adic Numbers, Ultrametric Analysis and Applications, \textbf{5}(2),89-105 (2013).
+\bibitem{Coulon} J. Coulon and J-L.Coulon, "Injectivity in the quasi-topos of separated presheaves on a complete Heyting algebra," Portugal. Math. \textbf{47}(3),227-241 (1990).
+\end{thebibliography}
+\end{frame}
+
+\end{document}

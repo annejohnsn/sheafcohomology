@@ -2,19 +2,4 @@
 \section*{Section 8}
 8.1 Let X be connected and locally simply connected, and choose a base point $x_0$. Show that for any locally constant sheaf (of sets) $A$, the group $\pi_1(X,x_0)$ acts on the stalk $A_{x_0}$. Show that this gives a functor $A \mapsto A_{x_0}$ which is an equivalence of categories between the category of locally constant sheaves on $X$ and the category of sets with a $\pi_1(X,x_0)$-action. \\
 
-\underline{$\pi_1(X,x_0)$ acts on the stalk $A_{x_0}$}\\
-Let $X$ be a space and let $A$ be a locally constant sheaf on $X$. First note that if $p:[0,1] \rightarrow X$ is any path in $X$ then $p$ determines a bijection from $A_{p(0)} \xrightarrow{\sim} A_{p(1)}$.  Indeed, if $s \in A_{p(0)}$.\\
-Now fix an $x_0 \in X$ and suppose $p:[0,1] \rightarrow X$ is a loop in $X$ based at $x_0$. Then, by the above, $p$ determines an automorphism of $A_{x_0}$. Moreover, if $p_1$ and $p_2$ are two loops in $X$ both based at $x_0$, then they determine the same automorphism of $A_{x_0}$ if they are homotopic. This implies a $\pi_1(X,x_0)$-action on $A_{x_0}$
-
-
-\underline{$F$ restricts to an equivalence of categories}\\
-When $X$ is connected and simply locally connected and the equivalence is given via the functor $A \rightarrow A_{x_0}$
- Then define a functor $F: LocConSh(X) \rightarrow \textbf{Set}$ from the category of locally constant sheaves on $X$ to $\textbf{Set}$ by $F(A) = A_{x_0}$ for some $x_0 \in X$. If $X$ is connected that this is does not depend on the base point $x_0$
-
-\newpage
-8.2 Prove the following: let $S^d$ be a $d$-dimensional sphere. For any Abelian group $A$, 
-\[
-H^n(S^d;A)= \begin{cases} A & \text{when } n=0 \text{ or } n=d \text{ provided } d \neq 0 \\ A \oplus A & \text{when } d =n=0;\\ 0 & \text{otherwise}.
-\end{cases}
-\]
-
+Let $X$ be connected and locally simply connected and fix $x_0$ in $X$. Let $p:[0,1] \rightarrow X$ be a loop in $X$ based at $x_0$. Then since $A$ is a locally constant sheaf, $p$ lifts uniquely to a loop $\tilde{p}$ in $EtA$ for each $germ_{x_0}(s)$ in the stalk of $A$ at $x_0$, that is, in  $\pi^{-1}(x_0)$, the fiber of $x_0$. Since homotopies also lift to homotopies, two homotopic paths $p_1$ and $p_2$ lift to homotopic maps $\tilde{p_1}$ and $\tilde{p_2}$ in $EtA$, so that $\tilde{p_1}(1)=germ_{x_0}(s)=\tilde{p_2}(1)$. Then we can define an action of $\pi_1(X,x_0)$ on $A_{x_0}=\pi^{-1}(x_0)$ by $p \cdot s = \tilde{p}_s(1)$, where $p$ is a loop based at $x_0$, $s$ is in the fiber of $x_0$ (ie $s$ in the stalk of $A_{x_0}$) and $\tilde{p}_s$ is the unique lift of $p$ for $s$ implied by the fact that $\pi$ is a covering map. Note that if $e$ is the constant loop, then $\tilde{p}_s(1) = s$, $\forall s$ so that $e \cdot s = \tilde{p}_s(1)=s$ 

@@ -2,7 +2,23 @@
 \section*{Section 4}
 4.1 (a) Show that with the notation as above, $\Gamma(-, \pi)$ is indeed isomorphic to the sheaffication of $P$. \\
 
-Since $\Gamma(-, \pi)$ is the sheaf of sections of $\pi: Et(G)/R \rightarrow X$ and the associated sheaf of $P$ is the sheaf of sections of $\pi_P:Et(P) \rightarrow X$, it suffices to show that $Et(G)/R \cong Et(P)$ and for this it suffices to show the stalks are isomorphic, i.e., $G_x/R \cong P_x$. \\
+We first fix some notation. Suppose $U \subseteq X$ and let $s \in G(U)$ be a section. Let $\overline{s}$ be the equivalence class of $s$ in $G(U)/im(\alpha_U) = coker(F(U) \xrightarrow{\alpha_U} G(U))$, so that  points in the \'etale space of $P$ are  denoted $germ_x(\overline{s})$. We denote by $\overline{germ_x(s)}$ the equivalence class of $germ_x(s)$ under the relation $R$ given above, where $germ_x(s) \in Et(G)$. \\
+
+To show $\Gamma(-, \pi) \cong P$, we define a map $\phi: \Gamma(-, \pi) \rightarrow P$ and show it induces an isomorphism on the stalks. For $U \subseteq X$ and $\sigma \in \Gamma(-,\pi)(U)$, define $\phi_U:\Gamma(-,\pi)(U) \rightarrow P(U)$ by $\phi_U(\sigma)=\tau$, where $\sigma$ is a function $x \mapsto \overline{germ_x(s)}$ and $\tau$ is a function $x \mapsto germ_x(\overline{s})$ for some $s \in G(U)$. Naturality of $\phi$ is straightforward, since restriction maps are just restrictions of functions. \\
+
+To see that $\phi$ is well defined, suppose $germ_x(t)$ is also a representative of $\overline{germ_x(s)}$. Then $\exists W \ni x$ and $f \in F(W)$ such that $s\mid_W - t\mid_W = \alpha_W(f)$. This however gives $germ_x(\overline{t}) = germ_x(\overline{s})$, since $W$ is then a neighborhood for which $\overline{s\mid_W} = \overline{t\mid_W}$, so that they are equal as germs. \\
+
+It remains to show that $\phi$ induces an isomorphism on the stalks. We show $\phi_x: \Gamma(-, \pi)_x \rightarrow P_x$ is injective and surjective. Fix an $x \in X$ and suppose $\phi(\overline{germ_x(a)})=germ_x(\overline{a})=\phi(\overline{germ_x(b)})$. We have to show $\exists W \ni x$ and $f \in F(W)$ such that $a\mid_W - b\mid_W = \alpha_W(f)$.
+To see that $\phi_x$ is surjective.
+
+
+\newpage
+
+
+Let $\overline{germ_x(s)}$ be an element of $Et(G)/R$, and let $germ_x(s)$ be a representative, so that if $germ_x(t)$ is another representative of $\overline{germ_x(s)}$, then $\exists W \ni x$ and $f \in F(W)$ such that $s\mid_W - t\mid_W = \alpha_W(f)$, where $s$ and $t$ are representatives of $germ_x(s)$ and $germ_x(t)$ respectively.\\
+
+Let $germ_x(a)$ be an element of $P_x$, represented by $(a,U)$ for some $U \ni x$ and $a \in P(U)  = coker(F(U) \xrightarrow{\alpha_U} G(U)) = G(U)/im(\alpha_U)$. If $(b,V)$ is another representative of $germ_x(a)$, then there exists $W \ni x$ such that $a\mid_W = b\mid_W$, i.e., $a\mid_W$ and $b\mid_W$ are in the same equivalence class of $G(W)/im(\alpha_W)$, i.e., $\exists f \in F(W)$ such that $s\mid_W - t\mid_W = \alpha_W(f)$. Then elements of $G_x/R$ and $P_x$ are both correspond to elements of $G_x$ identified  via the same relation.\\
+
 
 Let $\overline{germ_x(s)}$ be an element of $G_x/R$, and let $germ_x(s)$ be a representative, so that if $germ_x(t)$ is another representative of $\overline{germ_x(s)}$, then $\exists W \ni x$ and $f \in F(W)$ such that $s\mid_W - t\mid_W = \alpha_W(f)$, where $s$ and $t$ are representatives of $germ_x(s)$ and $germ_x(t)$ respectively.\\
 

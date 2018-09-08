@@ -115,7 +115,7 @@ Let $(M,d_M) \in UMet(\Gamma)$ and define $F_\Gamma(M, d_M)(\gamma) = (M_\gamma,
 Check that:
 \begin{itemize}
 	\item The restriction maps are well-defined
-	\item $ F_\Gamma(M,d_M)$ is flabby, i.e. if $B(a,\gamma) \in F_\Gamma(M,d_M)(\gamma)$, then there exists $\tilde{\gamma} \leq \gamma \in \Gamma$ such that $B(a, \gamma)\mid_{\tilde{\gamma}} = B(a,\gamma)$
+	\item $ F_\Gamma(M,d_M)$ is flabby
 	\item $ F_\Gamma(M,d_M)$ is separated
 	\item If $f:(M,d_M) \rightarrow (N,d_N)$ is a non-expanding map, then $F_\Gamma(f):F_\Gamma(M,d_M) \rightarrow F_\Gamma(N,d_N)$ is a map of flabby separated presheaves. 
 \end{itemize}
@@ -142,12 +142,15 @@ Check that:
 \textbf{Claim 3.19}\\ 
 There is a natural isomorphism $\eta: F_\Gamma \circ G_\Gamma \rightarrow id_{Flab(\Gamma^{op})}$ such that $(\forall x \in A(\bot))$  $\eta_A(\{x\})=x$
 when $A \in Flab(\Gamma^{op})$.
-
+\begin{proof}
+Use the map $\eta_A(B^{G_\Gamma(A)}(a,\gamma)) = a\mid_{\gamma}$ for $a \in A(\bot)$.
 Check that:
 \begin{itemize}
 	\item $\eta$ is well-defined and injective (since $A$ being flabby will imply that is surjective)
 	\item $\eta$ is natural
-\end{itemize}
+	\end{itemize}
+	
+\end{proof}
 \end{frame}
 
 \begin{frame}
@@ -157,8 +160,8 @@ There is a natural isomorphism $\epsilon: id_{UMet(\Gamma)} \rightarrow G_\Gamma
 
 
 \begin{itemize}
-	\item Suppose $(M',d_{M'})=G_\gamma(F_\gamma(M,d_M))$, so that $M'=\{\{a\}: a \in M\}$.
-	\item Check directly that the map given by  $\epsilon_{M,d_m}(a)=\{a\}$ is an isomorphism. Naturality is immediate.
+	\item Suppose $(M',d_{M'})=G_\gamma(F_\gamma(M,d_M))$. 
+	\item Then $M'=\{\{a\}: a \in M\}$ and $d_M'(\{a\},\{b\}) =\wedge\{\gamma:B^M(a,\gamma)=B^M(b,\gamma)\}=d_M(a,b)$
 \end{itemize}
 
 \textbf{Theorem 3.12}\\
@@ -195,13 +198,9 @@ In fact, this is enough, since we also have \cite{Coulon},\\
 \frametitle{injective hull}
 $\mathcal{F} \in Flab(\Gamma^{op})$ is injective $\Rightarrow i_\Gamma(\mathcal{F})$ is injective in $Sep(\Gamma^{op})$ 
 \begin{proof}
-Let $A$ be a separated presheaf on $\Gamma$. Define $A^*$ as follows:
-\begin{itemize}
-	\item $A^*(V)=\cup_{U\leq V} A(U) \times \{U\} \times \{V\}$
-	\item If $U \leq V$ and $<x,W,V> \in A^*(V)$ then $<x, W,V>\mid_U = <x\mid_{U\wedge W}, U \wedge W,U> \in A^*(U)$.
-\end{itemize}
+Idea: We have to show that $\mathcal{F}$ is injective when viewed as an object of $Sep(\Gamma^{op})$. Use the fact that $\mathcal{F}$ is injective $\in Flab(\Gamma^{op})$ to build the required maps in  $Flab(\Gamma^{op})$ and use the fact that $\mathcal{F}$ is flabby to find appropriate extensions. 
 
-Define $m,m^*,e_A$
+
 \end{proof}	
 \end{frame}
 

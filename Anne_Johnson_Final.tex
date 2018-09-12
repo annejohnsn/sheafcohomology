@@ -2,7 +2,11 @@
 
 \usepackage[all]{xy}
 \usepackage{amsfonts, amssymb}
+\usepackage{amsmath}
 \usepackage{graphics} 
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usepackage{tikz-cd}
 \newcommand{\bfA}{\mathbf{A}}
 \newcommand{\bfB}{\mathbf{B}}
 \newcommand{\bfC}{\mathbf{C}}
@@ -18,15 +22,32 @@
 \end{center}
 
 \begin{enumerate}
+%-----------------------question 1-----------------------------------------------%
 \item
 Let $\varphi\colon F\to G$ be a morphism of sheaves on a space $X$.
 \begin{enumerate}
  \item Show that the induced map $\Et(\varphi)\colon\Et(F)\to\Et(G)$ between the associated 
 \'etale spaces over $X$ is surjective if and only if for every open set $U$ of $X$, and every section $s\in G(U)$,
-there exists an open cover $(U_i)_{i\in I}$ of $U$ and sections $t_i\in F(U_i)$ such that $\varphi(t_i)=s|_{U_i}$ in $G(U_i)$ for all $i\in I$.
-\item Give an example of a surjective morphism of sheaves $\varphi\colon F\to G$, and an open set $U$ such that $\varphi_U\colon F(U)\to G(U)$ is not surjective.
+there exists an open cover $(U_i)_{i\in I}$ of $U$ and sections $t_i\in F(U_i)$ such that $\varphi(t_i)=s|_{U_i}$ in $G(U_i)$ for all $i\in I$.\\
+
+\underline{(Forwards direction)}\\
+Let $\phi:F \rightarrow G$ be a morphism of sheaves on X and suppose the induced map on the associated \'etale spaces is surjective. Denote points in the \'etale space of $F$ by $germ_y^F(a)$ and points in the \'etale space of $G$ by $germ_z^G(b)$. Pick some $U$ an open subset of $X$ and $s \in G(U)$. Since $Et(\phi)$ is surjective, for each $x \in U$, pick $germ_x^F(t) \in Et(F)$ such that $\Et(\phi)(germ_x^F(t)) = germ_x^G(s)$.  \\
+Take representatives $(t_x, U_x)$ for each $x \in U$. Then $\cup_{x \in X} U_x$ covers $U$ and $t_x \in F(U_x)$ is such that $\phi(t_x) = s\mid_{U_x}$.\\
+
+\underline{(Backwards direction)}\\
+Let $\phi:F \rightarrow G$ be a morphism of sheaves on X and suppose for every open set $U$ of $X$, and every section $s\in G(U)$, there exists an open cover $(U_i)_{i\in I}$ of $U$ and sections $t_i\in F(U_i)$ such that $\varphi(t_i)=s|_{U_i}$ in $G(U_i)$ for all $i\in I$. \\
+Let $germ_x(s)$ be a element of $Et(G)$ represented by some $(s,U)$. Let $U_i$ and $t_i$ be as above. First note that the $t_i \in F(U_i)$ form a compatible family in the $U_i$ since naturality of $\phi$ implies
+\[\phi(t_i\mid_{U_i\cap U_j}) = \phi(t_j\mid_{U_i\cap U_j}) = s\mid_{U_i \cap U_j}\] 
+Suppose that $t_i\mid_{U_i\cap U_j}$ and $t_j\mid_{U_i\cap U_j}$ were distinct elements of $F(U_i \cap U_j)$.**remember youre trying to show the induced mpa is surjective not phi itself** Then we must have $t_i\mid_{U_i \cap U_j} = t_j\mid_{U_i \cap U_j}$. Since $F$ is a sheaf, let $t \in F(U)$ be the amalgamation. Then $Et(\phi)(germ_x(t)) = germ_x(s)$ so $Et(\phi)$ is surjective.\\
+\newpage
+\item Give an example of a surjective morphism of sheaves $\varphi\colon F\to G$, and an open set $U$ such that $\varphi_U\colon F(U)\to G(U)$ is not surjective.\\
+
+Use two sheaves on the circle and show that the global section is not surjective.
+
+
 \end{enumerate}
- 
+%-----------------------question 2-----------------------------------------------%
+ \newpage
  \item 
 Let $[0, 1]$ denote the closed interval and $(0, 1)$ denote the open
 interval and $i: (0, 1) \to [0, 1]$ the inclusion map. Write $\Delta_{(0,1)}\zed$
@@ -36,10 +57,74 @@ be the adjunct of the identity map
 $$\Delta_{(0,1)}\zed \to \Delta_{(0,1)}\zed = i^*\Delta_{[0,1]}\zed.$$
 Calculate the cokernel of $\varphi$. Give it both as an \'etale space and
 as a sheaf defined as a functor.
+%-----------------------question 3-----------------------------------------------%
+\newpage
 \item
 Describe the direct sum $F\oplus G$ of two sheaves $F$ and $G$ on a space $X$.
-Then show that $H^n(X;F\oplus G)\cong H^n(X;F)\oplus H^n(X;G)$; i.e., sheaf cohomology commutes with taking direct sums.
+Then show that $H^n(X;F\oplus G)\cong H^n(X;F)\oplus H^n(X;G)$; i.e., sheaf cohomology commutes with taking direct sums.\\
 
+Let $F$ and $G$ be sheaves on a space $X$. We define the direct product of $F$ and $G$ to be the sheaf given by $F \oplus G (U) = F(U) \oplus G(U)$ for $U$ open in $X$. To see that $H^n(X;F\oplus G)\cong H^n(X;F)\oplus H^n(X;G)$, first note that we can build an exact sequence of sheaves by using the injection and projection maps as follows
+\[0 \rightarrow F \rightarrow F \oplus G \rightarrow G \rightarrow 0 \]
+Let $I^\bullet_F$, $I^\bullet$, and $I^\bullet_G$ be  resolutions of $F$, $F\oplus G$, and $G$, respectively that fit into the following map of chain complexes:
+\[
+\begin{tikzcd}
+0 \arrow[r]
+& F  \arrow[r] \arrow[d]
+& F \oplus G  \arrow[r] \arrow[d]
+& G \arrow[r] \arrow[d]
+& 0  
+\\
+0 \arrow[r] 
+& I^0_F \arrow[r] \arrow[d]
+& I^0 \arrow[r] \arrow[d]
+& I^0_G \arrow[r] \arrow[d]
+& 0  
+\\
+0 \arrow[r]  
+& I^1_F \arrow[r] \arrow[d]
+& I^1 \arrow[r] \arrow[d]
+& I^1_G \arrow[r] \arrow[d]
+& 0  
+\\
+& \vdots 
+& \vdots 
+& \vdots
+& 
+\end{tikzcd}
+\]
+where the columns are injective resolutions and the rows are exact. Such resolutions exists by section 4.6. Now apply the global section functor to this complex: 
+
+\[
+\begin{tikzcd}
+0 \arrow[r]
+& \Gamma F  \arrow[r] \arrow[d]
+& \Gamma F \oplus G  \arrow[r] \arrow[d]
+& \Gamma G \arrow[r] \arrow[d]
+& 0  
+\\
+0 \arrow[r] 
+& \Gamma I^0_F \arrow[r] \arrow[d]
+& \Gamma I^0 \arrow[r] \arrow[d]
+& \Gamma I^0_G \arrow[r] \arrow[d]
+& 0  
+\\
+0 \arrow[r]  
+& \Gamma I^1_F \arrow[r] \arrow[d]
+& \Gamma I^1 \arrow[r] \arrow[d]
+& \Gamma I^1_G \arrow[r] \arrow[d]
+& 0  
+\\
+& \vdots 
+& \vdots 
+& \vdots
+& 
+\end{tikzcd}
+\]
+and note that since the columns in the first diagram were injective, the rows in the second diagram are still exact (Lemma 4.6). Moreover, the first row is split exact since \[\Gamma F \oplus G = F \oplus G (X) = F(X) \oplus G(X) = \Gamma F \oplus \Gamma G.\] But then each row is exact: let $d$ be the map from $I^0 \rightarrow I^0_G$ and take $x \in \Gamma I^0_G$.*** and so by induction, each row is split exact. Then $\Gamma I^n \cong \Gamma I^n_F \oplus \Gamma I^n_G$ which implies $H^n(X;F\oplus G)\cong H^n(X;F)\oplus H^n(X;G)$ 
+\newpage.
+
+
+%-----------------------question 4-----------------------------------------------%
 \item 
 Given an abelian group $G$ and a topological space $X$ with a point $p\in X$, define a presheaf $G_p$ on $X$ by
 $$
@@ -50,13 +135,34 @@ G_p(U)=\left\{\begin{array}{ll}G,&\mbox{ if }p\in U,\\0,&\mbox{ if }p\not\in U\e
 $$
 for $V\subseteq U\subseteq X$ open sets. 
 \begin{enumerate}
-\item Verify that this defines a sheaf on $X$. 
-\item Describe the stalks at each point of the space.
-\item Let $F$ be a sheaf on a one-point space $X=\{P\}$. Show that $H^1(X;F)=0$.
-\item Let $X$ be an arbitrary space with $p\in X$ and $G_p$ as defined above.
-Show that $H^1(X;G_p)=0$.
-\end{enumerate}
+\item Verify that this defines a sheaf on $X$. \\
 
+Let $i$ be the inclusion of $p$ into $X$ and consider $i_*\Delta G$. For $U$ open in $X$, \[i_*\Delta G (U) = \Delta G (i^{-1} (U)) = \begin{cases} \Delta G(\{p\}), & \text{if }p \in U \\\Delta G(\emptyset), & \text{if }p \notin U  \end{cases} = \begin{cases} G, & \text{if } p \in U \\0, & \text{if }p \notin U \end{cases}\]
+The restriction maps for $i_*\Delta G$ are 
+Then  $i_*\Delta G = G_p$ and since $i_*\Delta G$ is a sheaf, so is $G_p$.
+\item Describe the stalks at each point of the space.\\
+If X is Hausdorff you don't need the bar.
+${G_p}_x = 
+\begin{cases}
+0 & x \notin \bar{p} \\
+G & x \in \bar{p}
+\end{cases}
+$\\
+
+since $x \in \bar{p}$ implies that every open set containing $x$ intersects $p$, so that every restriction of open sets containing $x$ still has sections $\forall g \in G$.\\
+ 
+\item Let $F$ be a sheaf on a one-point space $X=\{P\}$. Show that $H^1(X;F)=0$.\\
+Let $F$ and $X=\{P\}$ be as above. Let \[0 \rightarrow F \rightarrow I^0 \rightarrow I^1 \rightarrow I^2 \rightarrow \ldots\] be an injective resolution of $F$. Consider 
+\[0 \rightarrow \Gamma F \rightarrow \Gamma I^0 \rightarrow \Gamma I^1 \rightarrow \Gamma I^2 \rightarrow \ldots\]
+Since $X$ is a one point space $\Gamma I^\bullet \cong I^\bullet_x$. Then since $I^\bullet$ being exact implies $I^\bullet_x$ is exact (by definition), we have that $\Gamma I^\bullet$ is also exact. This means $H^n(X; F)=0, \forall n >0$, in particular for $n=1$.\\
+ 
+\item Let $X$ be an arbitrary space with $p\in X$ and $G_p$ as defined above.
+Show that $H^1(X;G_p)=0$.\\
+
+Note that $G_p$ is flabby for any space $X$. This implies that $G_p$ is acyclic and so $H^n(X;G_p)=0, \forall n >0$, in particular for $n=1$.
+%-----------------------question 5-----------------------------------------------%
+\end{enumerate}
+\newpage
 \item
 The torus $T$ is obtained as the quotient space of $[0,1]\times[0,1]$ by the equivalence relation generated by: 
 $(x,0)\sim (x,1)$ for all $x\in [0,1]$ and $(0,y)\sim(1,y)$ for all $y\in [0,1]$.

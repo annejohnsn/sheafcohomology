@@ -1,5 +1,51 @@
 \newpage
 \section*{Section 8}
-8.1 Let X be connected and locally simply connected, and choose a base point $x_0$. Show that for any locally constant sheaf (of sets) $A$, the group $\pi_1(X,x_0)$ acts on the stalk $A_{x_0}$. Show that this gives a functor $A \mapsto A_{x_0}$ which is an equivalence of categories between the category of locally constant sheaves on $X$ and the category of sets with a $\pi_1(X,x_0)$-action. \\
+8.1 Let X be connected and locally simply connected, and choose a base point $x_0$. Show that for any locally constant sheaf (of sets) $A$, the group $\pi_1(X,x_0)$ acts on the stalk $A_{x_0}$. Show that this gives a functor $A \mapsto A_{x_0}$ (which is an equivalence of categories between the category of locally constant sheaves on $X$ and the category of sets with a $\pi_1(X,x_0)$-action.) \\
 
-Let $X$ be connected and locally simply connected and fix $x_0$ in $X$. Let $p:[0,1] \rightarrow X$ be a loop in $X$ based at $x_0$. Then since $A$ is a locally constant sheaf, $p$ lifts uniquely to a loop $\tilde{p}$ in $EtA$ for each $germ_{x_0}(s)$ in the stalk of $A$ at $x_0$, that is, in  $\pi^{-1}(x_0)$, the fiber of $x_0$. Since homotopies also lift to homotopies, two homotopic paths $p_1$ and $p_2$ lift to homotopic maps $\tilde{p_1}$ and $\tilde{p_2}$ in $EtA$, so that $\tilde{p_1}(1)=germ_{x_0}(s)=\tilde{p_2}(1)$. Then we can define an action of $\pi_1(X,x_0)$ on $A_{x_0}=\pi^{-1}(x_0)$ by $p \cdot s = \tilde{p}_s(1)$, where $p$ is a loop based at $x_0$, $s$ is in the fiber of $x_0$ (ie $s$ in the stalk of $A_{x_0}$) and $\tilde{p}_s$ is the unique lift of $p$ for $s$ implied by the fact that $\pi$ is a covering map. Note that if $e$ is the constant loop, then $\tilde{p}_s(1) = s$, $\forall s$ so that $e \cdot s = \tilde{p}_s(1)=s$ 
+Let $X$ be connected and locally simply connected. Let $A$ be a locally constant sheaf, so that $\pi:Et(A) \rightarrow X$ is a covering map. Fix $x_0$ in $X$ and let $p:[0,1] \rightarrow X$ be a loop in $X$ based at $x_0$. Consider $\pi^{-1}(x_0) \in Et(A)$. Since $\pi$ is a covering map, there exists a neighborhood $U_0$ of $x_0$ in $X$ and a set $S=\pi^{-1}(x_0)$ such that $U_0$ is evenly covered by $\pi$ with $\pi^{-1}(U_0)=U_0 \times S$, where $S$ has the discrete topology. (i.e., each $x \in X$ has a neighborhood whose preimage under $\pi$ is a stack of pancakes with one pancake for each $s \in S = A_{x}$).\\ 
+
+
+Note that for each $s \in S$ (that is, each point in the fiber of $x_0$ or equivalently each point in $A_{x_0}$),  the fact that $\pi$ is a covering map implies that $p:[0,1] \rightarrow X$ has a unique lifting, $\tilde{p}_s$, to a path in $Et(A)$ beginning at $s$ and ending at some $t \in S$ (Munkres Lemma 54.1). Moreover, if $p_1$ and $p_2$ are both loops based at $x_0$ and are homotopic, then the induced paths in $Et(A)$ are homotopic with identical endpoints (Munkres Theorem 54.3). Now we can define an action of $\pi_1(X,x_0)$ on $A_{x_0}=\pi^{-1}(x_0)$ by $p \cdot s = \tilde{p}_s(1)$, where $p$ is a loop based at $x_0$, $s$ is in the fiber of $x_0$ (ie $s$ in the stalk of $A_{x_0}$) and $\tilde{p}_s$ is the unique lift of $p$ for $s$ implied by the fact that $\pi$ is a covering map. Note that if $e$ is the constant loop, then $\tilde{e}_s(1) = s$, $\forall s$ so that $e \cdot s = \tilde{e}_s(1)=s$. Since the group operation, $*$, of $\pi(X,x_0)$ is composition of loops, we also have $p \cdot (q \cdot s) = p \cdot \tilde{q}_s(1) = \tilde{p}_{\tilde{q}_s(1)}(1)=(p * q) \cdot s$. Then $\pi(X,x_0)$ gives an action on $A_{x_0}$.\\
+
+Let $\textbf{LocConSh(X)}$ be the category of locally constant sheaves on $X$. Define a functor $F: \textbf{LocConSh(X)} \rightarrow \textbf{Set}$ by $A \mapsto A_{x_0}$. Note that since $X$ is (path-) connected, this does not depend on the choice of base point, $x_0$. Suppose $\phi:A \rightarrow B$ is an arrow in $\textbf{LocConSh(X)}$. We must show:
+
+\[
+\begin{tikzcd}
+A(U) \arrow[r, "F"] \arrow[d, "\phi_U"']
+&  A_{x_0} \arrow[d, "F\phi_U"] \\
+B(U) \arrow[r, "F"']
+& B_{x_0} 
+\end{tikzcd}
+\]
+
+\newpage
+8.2 Let $S^d$ be a $d$-dimensional sphere. For any Abelian group A, prove that,
+\[H^n(S^d;A) = \begin{cases}
+A & \text{when } n=0 \text{ or } n =d \text{ provided } d \neq 0;\\
+A \oplus A & \text{when } d=n=0;\\
+0 & \text{otherwise}.
+\end{cases}\]
+
+Write $S^d$ as the union of closed subspaces, $N$ and $S$, the closed northern and southern hemispheres, $S^d=N \cup S$. Note that $S^{d-1} = N \cap S$. We proceed by induction of $d$ and consider the cases $n \neq d$ and $n = d$ separately. The cases $n=0$ and $d=0$ are obvious (since $S^d$ is connected for $d>0$ and $S^0$ has two components).\\
+
+Suppose $d >1$ and the result holds for $d=0$. By inductive hypothesis, for $n \neq d$ and $n>0$, $H^n(S^{d-1};A\mid_{S^{d-1}}) =0.$ Then the Mayer-Vietoris sequence:
+\[\ldots \rightarrow H^{n-1}(S^{d-1}; A\mid_{s^{d-1}}) \rightarrow\]\[  H^n(S^d;A) \rightarrow H^n(N;A\mid_N) \oplus H^n(S;A\mid_S) \rightarrow H^n(S^{d-1}; A\mid_{S^{d-1}}) \rightarrow \ldots \]
+becomes :
+\[ \ldots \rightarrow 0 \rightarrow H^n(S^d;A) \rightarrow H^n(N;A\mid_N) \oplus H^n(S;A\mid_S) \rightarrow 0 \rightarrow \ldots \]
+
+And so by exactness, we have 
+\[ \ldots \rightarrow 0 \rightarrow H^n(S^d;A) \xrightarrow{\sim} H^n(N;A\mid_N) \oplus H^n(S;A\mid_S) \rightarrow 0 \rightarrow \ldots \]
+
+It remains to show that $H^n(N;A\mid_N) \oplus H^n(S;A\mid_S) =0$.*** Then $H^n(S^d;A)=0$ for all $n \neq d$ and $n >0$ and for all $d$.\\
+
+We now consider the case $n =d$. By inductive hypothesis, we have $H^{n-1}(S^{d-1};A)=H^{d-1}(S^{d-1};A) =A.$ So the Mayer-Vietoris sequence:
+\[\ldots \rightarrow H^{d-1}(N;A\mid_N) \oplus H^{d-1}(S;A\mid_S) \rightarrow H^{d-1}(S^{d-1}; A\mid_{S^{d-1}}) \rightarrow H^d(S^d;A) \rightarrow\]
+becomes
+\[\ldots  \rightarrow H^{d-1}(N;A\mid_N) \oplus H^{d-1}(S;A\mid_S) \rightarrow A \rightarrow H^d(S^d;A) \rightarrow \ldots\]
+
+But by above, this is 
+\[\ldots  \rightarrow 0\rightarrow A \rightarrow H^d(S^d;A) \rightarrow \ldots\]
+
+which by exactness and the first isomorphism theorem implies $H^d(S^d;A) \cong A$ and so the result follows.
+
+ 

@@ -7,6 +7,7 @@
 \usepackage{tikz}
 \usepackage{tcolorbox}
 \usepackage{tikz-cd}
+\usepackage{mathtools}
 \newcommand{\bfA}{\mathbf{A}}
 \newcommand{\bfB}{\mathbf{B}}
 \newcommand{\bfC}{\mathbf{C}}
@@ -30,19 +31,15 @@ Let $\varphi\colon F\to G$ be a morphism of sheaves on a space $X$.
 \'etale spaces over $X$ is surjective if and only if for every open set $U$ of $X$, and every section $s\in G(U)$,
 there exists an open cover $(U_i)_{i\in I}$ of $U$ and sections $t_i\in F(U_i)$ such that $\varphi(t_i)=s|_{U_i}$ in $G(U_i)$ for all $i\in I$.\\
 
-\underline{(Forwards direction)}\\
-Let $\phi:F \rightarrow G$ be a morphism of sheaves on X and suppose the induced map on the associated \'etale spaces is surjective. Denote points in the \'etale space of $F$ by $germ_y^F(a)$ and points in the \'etale space of $G$ by $germ_z^G(b)$. Pick some $U$ an open subset of $X$ and $s \in G(U)$. Since $Et(\phi)$ is surjective, for each $x \in U$, pick $germ_x^F(t) \in Et(F)$ such that $\Et(\phi)(germ_x^F(t)) = germ_x^G(s)$.  \\
-Take representatives $(t_x, U_x)$ for each $x \in U$. Then $\cup_{x \in X} U_x$ covers $U$ and $t_x \in F(U_x)$ is such that $\phi(t_x) = s\mid_{U_x}$.\\
+\begin{center}
+$Et(\phi)$ is surjective \[ \iff \] $\phi_x: F_x \rightarrow G_x$ is surjective for all $x \in X$ \[\iff\] $\forall germ_x(s) \in G_x$, $\exists U_x \ni x$ such that $s\mid_{U_x} = \phi_{U_x}(t_x)$, for some $t_x \in F(U_x)$ and for each $x \in X$; that is, each germ in the stalk of $G$ at $x$ is represented by some $s$ locally in the image of $\phi$ \[\iff\]  for every open set $U$ of $X$, and every section $s\in G(U)$,
+there exists an open cover $(U_i)_{i\in I}$ of $U$ and sections $t_i\in F(U_i)$ such that $\varphi(t_i)=s|_{U_i}$ in $G(U_i)$ for all $i\in I$ (given such $U_i$'s covering $U$, we must have $x \in U_i$ for some i, so  take $U_x$ = $U_i$. Conversely, take the $U_x$'s (for all $x \in U$) to be the required cover)
+\end{center}
 
-\underline{(Backwards direction)}\\
-Let $\phi:F \rightarrow G$ be a morphism of sheaves on X and suppose for every open set $U$ of $X$, and every section $s\in G(U)$, there exists an open cover $(U_i)_{i\in I}$ of $U$ and sections $t_i\in F(U_i)$ such that $\varphi(t_i)=s|_{U_i}$ in $G(U_i)$ for all $i\in I$. \\
-Let $germ_x(s)$ be a element of $Et(G)$ represented by some $(s,U)$. Let $U_i$ and $t_i$ be as above. First note that the $t_i \in F(U_i)$ form a compatible family in the $U_i$ since naturality of $\phi$ implies
-\[\phi(t_i\mid_{U_i\cap U_j}) = \phi(t_j\mid_{U_i\cap U_j}) = s\mid_{U_i \cap U_j}\] 
-Suppose that $t_i\mid_{U_i\cap U_j}$ and $t_j\mid_{U_i\cap U_j}$ were distinct elements of $F(U_i \cap U_j)$.**remember youre trying to show the induced mpa is surjective not phi itself** Then we must have $t_i\mid_{U_i \cap U_j} = t_j\mid_{U_i \cap U_j}$. Since $F$ is a sheaf, let $t \in F(U)$ be the amalgamation. Then $Et(\phi)(germ_x(t)) = germ_x(s)$ so $Et(\phi)$ is surjective.\\
 \newpage
 \item Give an example of a surjective morphism of sheaves $\varphi\colon F\to G$, and an open set $U$ such that $\varphi_U\colon F(U)\to G(U)$ is not surjective.\\
 
-Use two sheaves on the circle and show that the global section is not surjective.
+Let $F$ be the sheaf on $S^1$ built from the double cover of the circle over itself, $\delta: S^1 \rightarrow S^1$ with $\delta(cos(\theta), sin(\theta)) = (cos(2\theta), sin(2\theta))$. Let $G$ be the sheaf on $S^1$ built from the trivial covering of the circle  $\pi: S^1 \rightarrow S^1$.Then $\forall U$, $G(U)$ has a single section, given by the identity function. Let us call it $0_{G,U}$.  Also note that for all $U \neq X$, $F(U)$ has exactly two sections. Let us call them $0_{F,U}$ and $1_{F,U}$.  Define a sheaf map $\phi: F \rightarrow G$ by \[\phi_U(F(U))(0_{F,U}) = \phi_U(F(U))(1_{F,U}) = 0_{G,U}\] for $U \neq X$. Then $\phi$ is natural and $\phi$ gives a surjection on the stalks, i.e $Et(\phi)$ is surjective. Taking $U=X=S^1$, however, we see $\phi(F(U))=\phi(F(S^1))=\phi(\emptyset)$ has empty image, so $\phi_{S^1}$ is not surjective.
 
 
 \end{enumerate}
@@ -56,71 +53,57 @@ $$\varphi: i_!\Delta_{(0,1)}\zed \to \Delta_{[0,1]}\zed$$
 be the adjunct of the identity map
 $$\Delta_{(0,1)}\zed \to \Delta_{(0,1)}\zed = i^*\Delta_{[0,1]}\zed.$$
 Calculate the cokernel of $\varphi$. Give it both as an \'etale space and
-as a sheaf defined as a functor.
+as a sheaf defined as a functor.\\
+
+Define the presheaf $P$ on $X$ by $P(U) = coker(i_!\Delta_{(0,1)}\mathbb{Z}(U) \rightarrow \Delta_{[0,1]}\mathbb{Z}(U)) = \Delta_{[0,1]}\mathbb{Z}(U) / im_{\phi_U}$. Suppose $s \in \Delta_{[0,1]}\mathbb{Z}(U)$. Then $s \in im_{\phi_U}$ if the support of $s$ is closed in $U$,  but this happens just in case $0$ and $1$ are not in the support of $s$. In this case $P(U)$ gives back the stalks of $\Delta_{[0,1]}\mathbb{Z}$ at $0$ and $1$. This gives the following definition of $P$ for $U$ open in $X$:
+\[P(U) = \begin{cases}
+\mathbb{Z} \times \mathbb{Z}, & \text{if } 0,1 \in U\\
+\mathbb{Z}, & \text{if exactly one of } 0 \text{ or } 1 \in U\\
+0, & otherwise 
+\end{cases}
+\]
+
+
+Note that the stalks of $P$ are:
+\[P_x = \begin{cases}
+\mathbb{Z}, & \text{if } x=0 \text{ or } x=1\\
+0, & otherwise 
+\end{cases}
+\]
+
+
+Since $coker(\phi)$ is the associated sheaf of $P$, this describes the \'etale space of $coker(\phi)$. As a functor, $coker(\phi)(U)$ is the set of continuous functions from $U$ into $\mathbb{Z} \times \mathbb{Z}$, $\mathbb{Z}$ or $0$, respectively. Note that this also describes the pushforward sheaf, $h_*\Delta \mathbb{Z}$, for $h:\{0,1\} = [0,1] \setminus (0,1) \xhookrightarrow{} [0,1]$, since $h_*\Delta \mathbb{Z} (U) = \Delta \mathbb{Z} (h^{-1} (U))$. Then we may also describe $coker(\phi)$ as the sheaf $h_*\Delta \mathbb{Z}$. 
+
+
 %-----------------------question 3-----------------------------------------------%
 \newpage
 \item
 Describe the direct sum $F\oplus G$ of two sheaves $F$ and $G$ on a space $X$.
 Then show that $H^n(X;F\oplus G)\cong H^n(X;F)\oplus H^n(X;G)$; i.e., sheaf cohomology commutes with taking direct sums.\\
 
-Let $F$ and $G$ be sheaves on a space $X$. We define the direct product of $F$ and $G$ to be the sheaf given by $F \oplus G (U) = F(U) \oplus G(U)$ for $U$ open in $X$. To see that $H^n(X;F\oplus G)\cong H^n(X;F)\oplus H^n(X;G)$, first note that we can build an exact sequence of sheaves by using the injection and projection maps as follows
-\[0 \rightarrow F \rightarrow F \oplus G \rightarrow G \rightarrow 0 \]
-Let $I^\bullet_F$, $I^\bullet$, and $I^\bullet_G$ be  resolutions of $F$, $F\oplus G$, and $G$, respectively that fit into the following map of chain complexes:
-\[
-\begin{tikzcd}
-0 \arrow[r]
-& F  \arrow[r] \arrow[d]
-& F \oplus G  \arrow[r] \arrow[d]
-& G \arrow[r] \arrow[d]
-& 0  
-\\
-0 \arrow[r] 
-& I^0_F \arrow[r] \arrow[d]
-& I^0 \arrow[r] \arrow[d]
-& I^0_G \arrow[r] \arrow[d]
-& 0  
-\\
-0 \arrow[r]  
-& I^1_F \arrow[r] \arrow[d]
-& I^1 \arrow[r] \arrow[d]
-& I^1_G \arrow[r] \arrow[d]
-& 0  
-\\
-& \vdots 
-& \vdots 
-& \vdots
-& 
-\end{tikzcd}
-\]
-where the columns are injective resolutions and the rows are exact. Such resolutions exists by section 4.6. Now apply the global section functor to this complex: 
+Let $F$ and $G$ be sheaves on a space $X$. We define the direct sum of $F$ and $G$ to be the sheaf given by $F \oplus G (U) = F(U) \oplus G(U)$ for $U$ open in $X$. To see that $H^n(X;F\oplus G)\cong H^n(X;F)\oplus H^n(X;G)$, let $I^\bullet_F$ and $I^\bullet_G$ be injective resolutions of $F$and $G$, respectively. Then note that $I^\bullet_F \oplus I^\bullet_G$ is an injective resolution of $F \oplus G$: each $I^n_F \oplus I^n_G$ is an injective sheaf because if $\phi$ is an injective sheaf map from some $A$ to  $I^n_F \oplus I^n_G$  and $i:A \rightarrow B$ is also an injective map, as bellow
 
 \[
 \begin{tikzcd}
-0 \arrow[r]
-& \Gamma F  \arrow[r] \arrow[d]
-& \Gamma F \oplus G  \arrow[r] \arrow[d]
-& \Gamma G \arrow[r] \arrow[d]
-& 0  
-\\
 0 \arrow[r] 
-& \Gamma I^0_F \arrow[r] \arrow[d]
-& \Gamma I^0 \arrow[r] \arrow[d]
-& \Gamma I^0_G \arrow[r] \arrow[d]
-& 0  
+& A \arrow[r, "i"] \arrow[d, "\phi"']
+& B 
 \\
-0 \arrow[r]  
-& \Gamma I^1_F \arrow[r] \arrow[d]
-& \Gamma I^1 \arrow[r] \arrow[d]
-& \Gamma I^1_G \arrow[r] \arrow[d]
-& 0  
-\\
-& \vdots 
-& \vdots 
-& \vdots
 & 
+I^n_F \oplus I^n_G
 \end{tikzcd}
-\]
-and note that since the columns in the first diagram were injective, the rows in the second diagram are still exact (Lemma 4.6). Moreover, the first row is split exact since \[\Gamma F \oplus G = F \oplus G (X) = F(X) \oplus G(X) = \Gamma F \oplus \Gamma G.\] But then each row is exact: let $d$ be the map from $I^0 \rightarrow I^0_G$ and take $x \in \Gamma I^0_G$.*** and so by induction, each row is split exact. Then $\Gamma I^n \cong \Gamma I^n_F \oplus \Gamma I^n_G$ which implies $H^n(X;F\oplus G)\cong H^n(X;F)\oplus H^n(X;G)$ 
+\] 
+
+Then $\phi$ can be lifted to a map $\tilde{\phi}:B \rightarrow  I^n_F \oplus I^n_G$, since if $\phi(a)=(f_a,g_a)$, define $\phi_F(a)=f_a \in I^n_F$ and use the injective property of $I_F^n$ to lift $\phi_F$ to $\tilde{\phi_F}$, and likewise for a $\phi_G$. Then take $\tilde{\phi}$ to be the map $b \in B \mapsto (\tilde{\phi_F}(b), \tilde{\phi_G}(b))$. Taking the boundary maps to be the direct sum of the maps in $I^\bullet_F$ and $I^\bullet_G$, we get immediately that $F \oplus G \rightarrow I^0_F \oplus I^0_G \rightarrow I^1_F \oplus I^1_G \rightarrow \ldots$ is exact.\\
+
+Now notice that we have the following split exact sequence of sheaves:
+\[0 \rightarrow F \rightarrow F \oplus G \rightarrow G \rightarrow 0\]
+
+Consider the induced maps in homology:
+\[0 \rightarrow H^n(X;F) \rightarrow H^n(X;F \oplus G) \rightarrow H^n(G) \rightarrow 0\]
+I claim that this is also split exact for all n. 
+
+
 \newpage.
 
 
@@ -138,20 +121,27 @@ for $V\subseteq U\subseteq X$ open sets.
 \item Verify that this defines a sheaf on $X$. \\
 
 Let $i$ be the inclusion of $p$ into $X$ and consider $i_*\Delta G$. For $U$ open in $X$, \[i_*\Delta G (U) = \Delta G (i^{-1} (U)) = \begin{cases} \Delta G(\{p\}), & \text{if }p \in U \\\Delta G(\emptyset), & \text{if }p \notin U  \end{cases} = \begin{cases} G, & \text{if } p \in U \\0, & \text{if }p \notin U \end{cases}\]
-The restriction maps for $i_*\Delta G$ are 
-Then  $i_*\Delta G = G_p$ and since $i_*\Delta G$ is a sheaf, so is $G_p$.
+The restriction maps for $i_*\Delta G$ are identity maps, and so they agree with the restriction maps of $G_p$. Then  $i_*\Delta G = G_p$ and since $i_*\Delta G$ is a sheaf, so is $G_p$.\\
+
 \item Describe the stalks at each point of the space.\\
-If X is Hausdorff you don't need the bar.
-${G_p}_x = 
+
+If X is Hausdorff, then for any $q \neq p$, we can find open neighborhoods $N_p$ and $N_q$ of $p$ and $q$ respectively such that $N_p \cap N_q =\emptyset$, which means that for any $q \neq p$, we have only the 0 germ:
+\[{G_p}_x = 
+\begin{cases}
+0 & x \neq p \\
+G & x = p
+\end{cases}
+\]
+If X is not Hausdorff, then we must consider whether or not a point $q \neq p$ has a neighborhood that does not intersect with some neighborhood of $p$. Write $q \notin \bar{p}$ if this is the case and  $q \in \bar{p}$ if every neighborhood of $q$ intersects some neighborhood of $p$. Then we have :
+\[{G_p}_x = 
 \begin{cases}
 0 & x \notin \bar{p} \\
 G & x \in \bar{p}
 \end{cases}
-$\\
-
-since $x \in \bar{p}$ implies that every open set containing $x$ intersects $p$, so that every restriction of open sets containing $x$ still has sections $\forall g \in G$.\\
+\]\\
  
 \item Let $F$ be a sheaf on a one-point space $X=\{P\}$. Show that $H^1(X;F)=0$.\\
+
 Let $F$ and $X=\{P\}$ be as above. Let \[0 \rightarrow F \rightarrow I^0 \rightarrow I^1 \rightarrow I^2 \rightarrow \ldots\] be an injective resolution of $F$. Consider 
 \[0 \rightarrow \Gamma F \rightarrow \Gamma I^0 \rightarrow \Gamma I^1 \rightarrow \Gamma I^2 \rightarrow \ldots\]
 Since $X$ is a one point space $\Gamma I^\bullet \cong I^\bullet_x$. Then since $I^\bullet$ being exact implies $I^\bullet_x$ is exact (by definition), we have that $\Gamma I^\bullet$ is also exact. This means $H^n(X; F)=0, \forall n >0$, in particular for $n=1$.\\
@@ -159,7 +149,7 @@ Since $X$ is a one point space $\Gamma I^\bullet \cong I^\bullet_x$. Then since 
 \item Let $X$ be an arbitrary space with $p\in X$ and $G_p$ as defined above.
 Show that $H^1(X;G_p)=0$.\\
 
-Note that $G_p$ is flabby for any space $X$. This implies that $G_p$ is acyclic and so $H^n(X;G_p)=0, \forall n >0$, in particular for $n=1$.
+Let $U$ be any open subset of $X$. Then either $G_p(U)=0$ or $G_p(U)=G$. Since we must have $p \in X$, $G_p(X)=G$, and so $\rho_{X,U}$ is always surjective; that is, $G_p$ is flabby.  This implies that $G_p$ is acyclic and so $H^n(X;G_p)=0, \forall n >0$, in particular for $n=1$.
 %-----------------------question 5-----------------------------------------------%
 \end{enumerate}
 \newpage
@@ -171,9 +161,21 @@ The Klein bottle $K$ is obtained as the quotient space of $[0,1]\times[0,1]$ by 
 $(x,0)\sim (x,1)$ for all $x\in [0,1]$ and $(0,y)\sim(1,1-y)$ for all $y\in [0,1]$.
 \begin{enumerate}
 \item
-Calculate the cohomology groups of the torus $T$ with values in the constant sheaf $\Delta_T\zed$. (Hint: use Corollary 7.3.2.)
-\item
-Use a Mayer-Vietoris sequence to calculate the cohomology groups of the Klein bottle with values in the constant sheaf $\Delta_K\zed$. 
+Calculate the cohomology groups of the torus $T$ with values in the constant sheaf $\Delta_T\zed$. (Hint: use Corollary 7.3.2.)\\
+
+
+Let $X$ be the space $[0,1]\times[0,1]$ and let $R$ be the equivalence relation generated above, so that $T = X/R$. Let $p: X \rightarrow X/R=T$ be the quotient map, sending a point to its equivalence class under $R$. Note that the fibers of $p$ are connected since 
+\[p^{-1}(x,y)= 
+\begin{cases}
+this, & \text{if } x \neq 0 \text{ and } x \neq 1;\\
+that, & \text{if } y \neq 0 \text{ and } y \neq 1;\\
+more, &
+
+\end{cases}\] \\
+
+
+Then $\Delta_T\mathbb{Z} \cong p_*p^*\Delta_T\mathbb{Z}$ (Proposition 7.6) and since ***; that is, $R^qp_*(p^*\Delta_T\mathbb{Z}) = 0$, for $q >0$. Then by Corollary 7.7, $p^*$ gives an isomorphism from $H^p(T; \Delta_T\mathbb{Z})$ to $H^p(X; p^*\Delta_T\mathbb{Z})$.
+\item Use a Mayer-Vietoris sequence to calculate the cohomology groups of the Klein bottle with values in the constant sheaf $\Delta_K\zed$. 
 \item
 Let $S$ be the middle circle of the torus, given by the image of the segment $\{(x,0)|\,x\in[0,1]\}$ in the quotient space. Give the long exact sequences for the pair $(T,S)$ 
 and for the relative cohomology with coefficients in $\Delta_T\zed$ and calculate as many of the groups as you can.

@@ -251,18 +251,28 @@ $(x,0)\sim (x,1)$ for all $x\in [0,1]$ and $(0,y)\sim(1,1-y)$ for all $y\in [0,1
 Calculate the cohomology groups of the torus $T$ with values in the constant sheaf $\Delta_T\zed$. (Hint: use Corollary 7.3.2.)\\
 
 
-Let $X$ be the space $[0,1]\times[0,1]$ and let $R$ be the equivalence relation generated above, so that $T = X/R$. Let $p: X \rightarrow X/R=T$ be the quotient map, sending a point to its equivalence class under $R$. Note that the fibers of $p$ are connected since 
-\[p^{-1}(x,y)= 
+Let $X$ be the space $[0,1]\times [0,1]$ and let $R$ be the equivalence relation described above, so that $T = X/R$. Let $p: X \rightarrow X/R=T$ be the quotient map, sending a point to its equivalence class under $R$. Note that the fibres of $p$ are connected since 
+\[p^{-1}(x_0,y_0)= 
 \begin{cases}
-this, & \text{if } x \neq 0 \text{ and } x \neq 1;\\
-that, & \text{if } y \neq 0 \text{ and } y \neq 1;\\
-more, &
-
+\{x_0,y_0\}, & \text{if } y_0 \neq 0 \text{;} y_0 \neq 1; x_0 \neq 0; x_0 \neq 1;\\
+\{x,y_0\}, x \in [0,1] & \text{if } y = 0 \text{ or } y = 1;\\
+\{x_0,y\}, y \in [0,1] & \text{if } x = 0 \text{ or } x = 1;\\
+\{x,y\}, y \in [0,1], x \in [0,1] & \text{if } x = 0 \text{ or } x = 1 \text{ and } \text{if } y = 0 \text{ or } y = 1\\
 \end{cases}\] \\
 
 
-Then $\Delta_T\mathbb{Z} \cong p_*p^*\Delta_T\mathbb{Z}$ (Proposition 7.6) and since ***; that is, $R^qp_*(p^*\Delta_T\mathbb{Z}) = 0$, for $q >0$. Then by Corollary 7.7, $p^*$ gives an isomorphism from $H^p(T; \Delta_T\mathbb{Z})$ to $H^p(X; p^*\Delta_T\mathbb{Z})$.
+Then $p^*$ gives an isomorphism from $H^p(T; \Delta_T\mathbb{Z})$ to $H^p(X; p^*\Delta_T\mathbb{Z})$. Note that  since $X = [0,1] \times [0,1]$ is contractible, we have that $id_X$ is homotopic  to $f: X \rightarrow \{*\}$ and so $H^n({*};p^*\Delta_T\mathbb{Z}) \xrightarrow{\sim} Hn(X,f^*p^*\Delta_T\mathbb{Z})$. This gives: 
+\[
+H^n(T; \Delta_T\mathbb{Z}) \cong H^p(X; p^*\Delta_T\mathbb{Z}) \cong H^n({*};f^*p^*\Delta_T\mathbb{Z}) = \begin{cases}
+\mathbb{Z}, & \text{if } n=0;\\
+0 & otherwise  
+\end{cases}
+\]
 \item Use a Mayer-Vietoris sequence to calculate the cohomology groups of the Klein bottle with values in the constant sheaf $\Delta_K\zed$. 
+
+Let $X$ be the space $[0,1]\times [0,1]$ and let $R$ be the equivalence relation described above, so that $K = X/R$.  
+
+
 \item
 Let $S$ be the middle circle of the torus, given by the image of the segment $\{(x,0)|\,x\in[0,1]\}$ in the quotient space. Give the long exact sequences for the pair $(T,S)$ 
 and for the relative cohomology with coefficients in $\Delta_T\zed$ and calculate as many of the groups as you can.

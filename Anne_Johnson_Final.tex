@@ -96,12 +96,99 @@ I^n_F \oplus I^n_G
 
 Then $\phi$ can be lifted to a map $\tilde{\phi}:B \rightarrow  I^n_F \oplus I^n_G$, since if $\phi(a)=(f_a,g_a)$, define $\phi_F(a)=f_a \in I^n_F$ and use the injective property of $I_F^n$ to lift $\phi_F$ to $\tilde{\phi_F}$, and likewise for a $\phi_G$. Then take $\tilde{\phi}$ to be the map $b \in B \mapsto (\tilde{\phi_F}(b), \tilde{\phi_G}(b))$. Taking the boundary maps to be the direct sum of the maps in $I^\bullet_F$ and $I^\bullet_G$, we get immediately that $F \oplus G \rightarrow I^0_F \oplus I^0_G \rightarrow I^1_F \oplus I^1_G \rightarrow \ldots$ is exact.\\
 
-Now notice that we have the following split exact sequence of sheaves:
-\[0 \rightarrow F \rightarrow F \oplus G \rightarrow G \rightarrow 0\]
+The we have the following map of chain complexes:
 
-Consider the induced maps in homology:
-\[0 \rightarrow H^n(X;F) \rightarrow H^n(X;F \oplus G) \rightarrow H^n(G) \rightarrow 0\]
-I claim that this is also split exact for all n. 
+\[
+\begin{tikzcd}
+0 \arrow[r]
+& F  \arrow[r] \arrow[d]
+& F \oplus G  \arrow[r] \arrow[d]
+& G \arrow[r] \arrow[d]
+& 0  
+\\
+0 \arrow[r] 
+& I^0_F \arrow[r] \arrow[d]
+& I^0_F \oplus I^0_G \arrow[r] \arrow[d]
+& I^0_G \arrow[r] \arrow[d]
+& 0  
+\\
+0 \arrow[r]  
+& I^1_F \arrow[r] \arrow[d]
+& I^1_F \oplus I^1_G \arrow[r] \arrow[d]
+& I^1_G \arrow[r] \arrow[d]
+& 0  
+\\
+& \vdots 
+& \vdots 
+& \vdots
+& 
+\end{tikzcd}
+\]
+where the columns are injective resolutions and the rows are split exact. Now apply the global section functor to this complex: 
+
+\[
+\begin{tikzcd}
+0 \arrow[r]
+& \Gamma F  \arrow[r] \arrow[d]
+& \Gamma F \oplus G  \arrow[r] \arrow[d]
+& \Gamma G \arrow[r] \arrow[d]
+& 0  
+\\
+0 \arrow[r] 
+& \Gamma I^0_F \arrow[r] \arrow[d]
+& \Gamma I_F^0 \oplus I_G^0 \arrow[r] \arrow[d]
+& \Gamma I^0_G \arrow[r] \arrow[d]
+& 0  
+\\
+0 \arrow[r]  
+& \Gamma I^1_F \arrow[r] \arrow[d]
+& \Gamma I_F^1 \oplus I_G^1 \arrow[r] \arrow[d]
+& \Gamma I^1_G \arrow[r] \arrow[d]
+& 0  
+\\
+& \vdots 
+& \vdots 
+& \vdots
+& 
+\end{tikzcd}
+\]
+
+Note that the rows are still split exact (because each $I^n_F$ is injective and since $\Gamma I_F^n \oplus I_G^n = I_F^n \oplus I_G^n (X) = I_F^n (X) \oplus I_G^n $ ), and the restriction of the maps in the rows to the homology groups is again split exact:
+
+\[
+\begin{tikzcd}
+0 \arrow[r]
+& \Gamma F  \arrow[r] \arrow[d]
+& \Gamma F \oplus G  \arrow[r] \arrow[d]
+& \Gamma G \arrow[r] \arrow[d]
+& 0  
+\\
+0 \arrow[r] 
+& H^0(X;F) \arrow[r] \arrow[d]
+& H^0(X; F \oplus G) \arrow[r] \arrow[d]
+& H^0(X; G) \arrow[r] \arrow[d]
+& 0  
+\\
+0 \arrow[r] 
+& H^1(X;F) \arrow[r] \arrow[d]
+& H^1(X; F \oplus G) \arrow[r] \arrow[d]
+& H^1(X; G) \arrow[r] \arrow[d]
+& 0   
+\\
+& \vdots 
+& \vdots 
+& \vdots
+& 
+\end{tikzcd}
+\]
+
+Since we have for each $n$
+
+\[
+ 0 \rightarrow ker(\Gamma I^n_F \rightarrow \Gamma I^{n+1}_F)/im(\Gamma I^{n-1}_F\rightarrow \Gamma I^{n}_F) \xrightarrow{\Gamma i\mid_{H^n(X;F)} }\]\[
+ ker(\Gamma I^n_F \oplus \Gamma I^n_G \rightarrow \Gamma I^{n+1}_F \oplus \Gamma I^{n+1}_g)/im(\Gamma I^{n-1}_F \oplus \Gamma I^{n-1}_G \rightarrow \Gamma I^{n}_F \oplus \Gamma I^n_G) \xrightarrow{\Gamma i\mid_{H^n(X;F\oplus G)} }\]\[
+ ker(\Gamma I^n_G \rightarrow \Gamma I^{n+1}_G)/im(\Gamma I^{n-1}_G \rightarrow \Gamma I^{n}_G) \rightarrow 0
+\]
 
 
 \newpage.

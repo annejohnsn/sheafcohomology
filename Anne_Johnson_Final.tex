@@ -261,7 +261,7 @@ Let $X$ be the space $[0,1]\times [0,1]$ and let $R$ be the equivalence relation
 \end{cases}\] \\
 
 
-Then $p^*$ gives an isomorphism from $H^p(T; \Delta_T\mathbb{Z})$ to $H^p(X; p^*\Delta_T\mathbb{Z})$. Note that  since $X = [0,1] \times [0,1]$ is contractible, we have that $id_X$ is homotopic  to $f: X \rightarrow \{*\}$ and so $H^n({*};p^*\Delta_T\mathbb{Z}) \xrightarrow{\sim} Hn(X,f^*p^*\Delta_T\mathbb{Z})$. This gives: 
+Then $p^*$ gives an isomorphism from $H^p(T; \Delta_T\mathbb{Z})$ to $H^p(X; p^*\Delta_T\mathbb{Z})$.*** just see what $p^*\Delta_T\mathbb{Z})$ is an compute the resolution***% Note that  since $X = [0,1] \times [0,1]$ is contractible, we have that $id_X$ is homotopic  to $f: X \rightarrow \{*\}$ and so $H^n({*};p^*\Delta_T\mathbb{Z}) \xrightarrow{\sim} Hn(X,f^*p^*\Delta_T\mathbb{Z})$. This gives: 
 \[
 H^n(T; \Delta_T\mathbb{Z}) \cong H^p(X; p^*\Delta_T\mathbb{Z}) \cong H^n({*};f^*p^*\Delta_T\mathbb{Z}) = \begin{cases}
 \mathbb{Z}, & \text{if } n=0;\\
@@ -270,7 +270,22 @@ H^n(T; \Delta_T\mathbb{Z}) \cong H^p(X; p^*\Delta_T\mathbb{Z}) \cong H^n({*};f^*
 \]
 \item Use a Mayer-Vietoris sequence to calculate the cohomology groups of the Klein bottle with values in the constant sheaf $\Delta_K\zed$. 
 
-Let $X$ be the space $[0,1]\times [0,1]$ and let $R$ be the equivalence relation described above, so that $K = X/R$.  
+Note that we can describe the space $K$ as the union of two M\"obius strips $X = [0,1]\times[0,1]/(x, 0) \sim (1 − x, 1)$ and $Y =  [0,1]\times[0,1]/(y, 0) \sim (1 − y, 1)$. Further note that $X$, $Y$ and $X \cap Y$ are all homotopic to $S^1$. Then Mayer-Vietoris sequence gives :
+\[0 \rightarrow H^0(K, \Delta_K\mathbb{Z}) \rightarrow H^0(X;\Delta_K\mathbb{Z}) \oplus H^0(Y;\Delta_K\mathbb{Z}) \rightarrow H^0(X \cap Y; \Delta_K\mathbb{Z}) \rightarrow\]
+ \[H^1(K, \Delta_K\mathbb{Z}) \rightarrow H^1(X;\Delta_K\mathbb{Z}) \oplus H^1(Y;\Delta_K\mathbb{Z}) \rightarrow H^1(X \cap Y; \Delta_K\mathbb{Z}) \rightarrow  \]
+\[H^2(K, \Delta_K\mathbb{Z}) \rightarrow H^2(X;\Delta_K\mathbb{Z}) \oplus H^2(Y;\Delta_K\mathbb{Z}) \rightarrow H^2(X \cap Y; \Delta_K\mathbb{Z}) \rightarrow  \]
+which by example 8.2, for $X$, $Y$ and $X \cap Y$ homotopic to $S^1$ gives:
+\[0 \rightarrow H^0(K, \Delta_K\mathbb{Z}) \rightarrow \mathbb{Z} \oplus \mathbb{Z} \rightarrow \mathbb{Z} \rightarrow\]
+\[H^1(K, \Delta_K\mathbb{Z}) \rightarrow \mathbb{Z} \oplus \mathbb{Z} \rightarrow \mathbb{Z} \rightarrow \]
+\[H^2(K, \Delta_K\mathbb{Z}) \rightarrow 0 \rightarrow 0 \rightarrow \rightarrow \]
+and since the above sequence is exact we have:
+\[
+H^n(K; \Delta_K\mathbb{Z}) = \begin{cases}
+\mathbb{Z}, & \text{if } n=0 \text{ or } 1;\\
+
+0 & otherwise  
+\end{cases}
+\]
 
 
 \item

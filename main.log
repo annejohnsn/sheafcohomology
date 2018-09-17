@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.12.13)  14 SEP 2018 17:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.12.13)  17 SEP 2018 12:29
 entering extended mode
 **main.tex
 (main.tex
@@ -821,7 +821,7 @@ LaTeX Font Info:    ... okay on input line 34.
 \MPnumerator=\count147
 \makeMPintoPDFobject=\count148
 \everyMPtoPDFconversion=\toks46
-) ABD: EveryShipout initializing macros (chapters/section4.tex [1
+) ABD: EveryShipout initializing macros (chapters/section8.tex [1
 
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
@@ -845,93 +845,64 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--6
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7--8
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9--10
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 18--19
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--21
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--24
-
+Overfull \hbox (34.58096pt too wide) in paragraph at lines 33--34
+[]\OT1/cmr/m/n/10.95 We now con-sider the case $\OML/cmm/m/it/10.95 n \OT1/cmr/
+m/n/10.95 = \OML/cmm/m/it/10.95 d$\OT1/cmr/m/n/10.95 . By in-duc-tive hy-poth-e
+-sis, we have $\OML/cmm/m/it/10.95 H[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 S
+[]\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 A\OT1/cmr/m/n/10.95 ) =$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 25--26
-
+Overfull \hbox (9.83067pt too wide) detected at line 34
+[] \OMS/cmsy/m/n/10.95 ! \OML/cmm/m/it/10.95 H[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/
+it/10.95 N\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 A \OMS/cmsy/m/n/10.95 j[]\OT
+1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95  \OML/cmm/m/it/10.95 H[]\OT1/cmr/m/n/10.
+95 (\OML/cmm/m/it/10.95 S\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 A \OMS/cmsy/m
+/n/10.95 j[]\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ! \OML/cmm/m/it/10.95 H[]\
+OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 S[]\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10
+.95 A \OMS/cmsy/m/n/10.95 j[]\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ! \OML/cm
+m/m/it/10.95 H[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 S[]\OT1/cmr/m/n/10.95 ;
+ \OML/cmm/m/it/10.95 A\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 !
  []
 
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 30--31
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 32--33
-
- []
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 37--38
-
- []
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 42--43
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 44--45
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 46--47
-
- []
-
-[6] [7] [8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 163--165
-
- []
-
-) [10] (main.aux) ) 
+) [3] (main.aux) ) 
 Here is how much of TeX's memory you used:
- 15924 strings out of 493698
- 330895 string characters out of 3144414
- 360150 words of memory out of 3000000
- 18961 multiletter control sequences out of 15000+200000
+ 15280 strings out of 493698
+ 314775 string characters out of 3144414
+ 343863 words of memory out of 3000000
+ 18317 multiletter control sequences out of 15000+200000
  10741 words of font info for 40 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 56i,16n,84p,1466b,937s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
-onts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb
->
-Output written on main.pdf (10 pages, 157008 bytes).
+ 56i,11n,84p,1186b,133s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+msy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on main.pdf (3 pages, 133171 bytes).
 PDF statistics:
- 82 PDF objects out of 1000 (max. 8388607)
+ 63 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

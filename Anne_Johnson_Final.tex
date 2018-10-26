@@ -81,7 +81,7 @@ Since $coker(\phi)$ is the associated sheaf of $P$, this describes the \'etale s
 Describe the direct sum $F\oplus G$ of two sheaves $F$ and $G$ on a space $X$.
 Then show that $H^n(X;F\oplus G)\cong H^n(X;F)\oplus H^n(X;G)$; i.e., sheaf cohomology commutes with taking direct sums.\\
 
-Let $F$ and $G$ be sheaves on a space $X$. We define the direct sum of $F$ and $G$ to be the sheaf given by $F \oplus G (U) = F(U) \oplus G(U)$ for $U$ open in $X$. To see that $H^n(X;F\oplus G)\cong H^n(X;F)\oplus H^n(X;G)$, let $I^\bullet_F$ and $I^\bullet_G$ be injective resolutions of $F$and $G$, respectively. Then note that $I^\bullet_F \oplus I^\bullet_G$ is an injective resolution of $F \oplus G$: each $I^n_F \oplus I^n_G$ is an injective sheaf because if $\phi$ is an injective sheaf map from some $A$ to  $I^n_F \oplus I^n_G$  and $i:A \rightarrow B$ is also an injective map, as bellow
+Let $F$ and $G$ be sheaves on a space $X$. We define the direct sum of $F$ and $G$ to be the sheaf given by $F \oplus G (U) = F(U) \oplus G(U)$ for $U$ open in $X$. To see that $H^n(X;F\oplus G)\cong H^n(X;F)\oplus H^n(X;G)$, let $I^\bullet_F$ and $I^\bullet_G$ be injective resolutions of $F$and $G$, respectively. Then note that $I^\bullet_F \oplus I^\bullet_G$ is an injective resolution of $F \oplus G$: each $I^n_F \oplus I^n_G$ is an injective sheaf because if $\phi$ is an injective sheaf map from some $A$ to  $I^n_F \oplus I^n_G$  and $i:A \rightarrow B$ is also an injective map, as below
 
 \[
 \begin{tikzcd}
@@ -94,7 +94,7 @@ I^n_F \oplus I^n_G
 \end{tikzcd}
 \] 
 
-Then $\phi$ can be lifted to a map $\tilde{\phi}:B \rightarrow  I^n_F \oplus I^n_G$, since if $\phi(a)=(f_a,g_a)$, define $\phi_F(a)=f_a \in I^n_F$ and use the injective property of $I_F^n$ to lift $\phi_F$ to $\tilde{\phi_F}$, and likewise for a $\phi_G$. Then take $\tilde{\phi}$ to be the map $b \in B \mapsto (\tilde{\phi_F}(b), \tilde{\phi_G}(b))$. Taking the boundary maps to be the direct sum of the maps in $I^\bullet_F$ and $I^\bullet_G$, we get immediately that $F \oplus G \rightarrow I^0_F \oplus I^0_G \rightarrow I^1_F \oplus I^1_G \rightarrow \ldots$ is exact.\\
+Then $\phi$ can be lifted to a map $\tilde{\phi}:B \rightarrow  I^n_F \oplus I^n_G$, since if $\phi(a)=(f_a,g_a)$, define $\phi_F(a)=f_a \in I^n_F$ and use the injective property of $I_F^n$ to lift $\phi_F$ to $\tilde{\phi_F}$, and likewise for a $\phi_G$. Then take $\tilde{\phi}$ to be the map $b \in B \mapsto (\tilde{\phi_F}(b), \tilde{\phi_G}(b))$. Taking the co-boundary maps to be the direct sum of the maps in $I^\bullet_F$ and $I^\bullet_G$, we get immediately that $F \oplus G \rightarrow I^0_F \oplus I^0_G \rightarrow I^1_F \oplus I^1_G \rightarrow \ldots$ is exact.\\
 
 The we have the following map of chain complexes:
 
@@ -153,7 +153,7 @@ where the columns are injective resolutions and the rows are split exact. Now ap
 \end{tikzcd}
 \]
 
-Note that the rows are still split exact (because each $I^n_F$ is injective and since $\Gamma I_F^n \oplus I_G^n = I_F^n \oplus I_G^n (X) = I_F^n (X) \oplus I_G^n $ ), and the restriction of the maps in the rows to the homology groups is again split exact:
+Note that the rows are still split exact (because each $I^n_F$ is injective (which implies that the rows are exact) and since $\Gamma I_F^n \oplus I_G^n = I_F^n \oplus I_G^n (X) = I_F^n (X) \oplus I_G^n $ ), and the restriction of the maps in the rows to the homology groups is again split exact:
 
 \[
 \begin{tikzcd}
@@ -190,6 +190,7 @@ Since we have for each $n$
  ker(\Gamma I^n_G \rightarrow \Gamma I^{n+1}_G)/im(\Gamma I^{n-1}_G \rightarrow \Gamma I^{n}_G) \rightarrow 0
 \]
 
+so that we can built the splitting maps by noting that kernels and images themselves commute with direct sums.
 
 \newpage.
 
@@ -250,47 +251,79 @@ $(x,0)\sim (x,1)$ for all $x\in [0,1]$ and $(0,y)\sim(1,1-y)$ for all $y\in [0,1
 \item
 Calculate the cohomology groups of the torus $T$ with values in the constant sheaf $\Delta_T\zed$. (Hint: use Corollary 7.3.2.)\\
 
+Note that we can describe the torus as the union of two cylinders $C_1 = [0,1] \times S^1$ and $C_2 = [0,1] \times S^1$ glued together at the ends. We have $T=C_1 \cup C_2$ and $C_1 \cap C_2 = S^1 \oplus S^1$. Then the Mayer-Vietoris sequence gives us:
 
-Let $X$ be the space $[0,1]\times [0,1]$ and let $R$ be the equivalence relation described above, so that $T = X/R$. Let $p: X \rightarrow X/R=T$ be the quotient map, sending a point to its equivalence class under $R$. Note that the fibres of $p$ are connected since 
-\[p^{-1}(x_0,y_0)= 
-\begin{cases}
-\{x_0,y_0\}, & \text{if } y_0 \neq 0 \text{;} y_0 \neq 1; x_0 \neq 0; x_0 \neq 1;\\
-\{x,y_0\}, x \in [0,1] & \text{if } y = 0 \text{ or } y = 1;\\
-\{x_0,y\}, y \in [0,1] & \text{if } x = 0 \text{ or } x = 1;\\
-\{x,y\}, y \in [0,1], x \in [0,1] & \text{if } x = 0 \text{ or } x = 1 \text{ and } \text{if } y = 0 \text{ or } y = 1\\
-\end{cases}\] \\
+\[0 \rightarrow H^0(T, \Delta_T\mathbb{Z}) \rightarrow H^0(C_1;\Delta_T\mathbb{Z}) \oplus H^0(C_2;\Delta_T\mathbb{Z}) \rightarrow H^0( S^1 \oplus S^1; \Delta_T\mathbb{Z}) \rightarrow\]
+\[ H^1(T, \Delta_T\mathbb{Z}) \rightarrow H^1(C_1;\Delta_T\mathbb{Z}) \oplus H^1(C_2;\Delta_T\mathbb{Z}) \rightarrow H^1( S^1 \oplus S^1; \Delta_T\mathbb{Z}) \rightarrow\]
+\[ H^2(T, \Delta_T\mathbb{Z}) \rightarrow H^2(C_1;\Delta_T\mathbb{Z}) \oplus H^2(C_2;\Delta_T\mathbb{Z}) \rightarrow H^2( S^1 \oplus S^1; \Delta_T\mathbb{Z}) \rightarrow\]
 
 
-Then $p^*$ gives an isomorphism from $H^p(T; \Delta_T\mathbb{Z})$ to $H^p(X; p^*\Delta_T\mathbb{Z})$.*** just see what $p^*\Delta_T\mathbb{Z})$ is an compute the resolution***% Note that  since $X = [0,1] \times [0,1]$ is contractible, we have that $id_X$ is homotopic  to $f: X \rightarrow \{*\}$ and so $H^n({*};p^*\Delta_T\mathbb{Z}) \xrightarrow{\sim} Hn(X,f^*p^*\Delta_T\mathbb{Z})$. This gives: 
-\[
-H^n(T; \Delta_T\mathbb{Z}) \cong H^p(X; p^*\Delta_T\mathbb{Z}) \cong H^n({*};f^*p^*\Delta_T\mathbb{Z}) = \begin{cases}
-\mathbb{Z}, & \text{if } n=0;\\
-0 & otherwise  
-\end{cases}
+By example 8.5 in the notes and exercise 3 above, this above is equal to 
+
+\[0 \rightarrow H^0(T, \Delta_T\mathbb{Z}) \rightarrow H^0(C_1;\Delta_T\mathbb{Z}) \oplus H^0(C_2;\Delta_T\mathbb{Z}) \rightarrow  \mathbb{Z} \oplus \mathbb{Z} \rightarrow\]
+\[ H^1(T, \Delta_T\mathbb{Z}) \rightarrow H^1(C_1;\Delta_T\mathbb{Z}) \oplus H^1(C_2;\Delta_T\mathbb{Z}) \rightarrow \mathbb{Z} \oplus \mathbb{Z} \rightarrow\]
+\[ H^2(T, \Delta_T\mathbb{Z}) \rightarrow H^2(C_1;\Delta_T\mathbb{Z}) \oplus H^2(C_2;\Delta_T\mathbb{Z}) \rightarrow 0 \rightarrow\]
+
+Since a cyclinder is homotopic to $S^1$ and since $ H^0(T, \Delta_T\mathbb{Z}) = \Gamma \Delta_T\mathbb{Z} (T) = \mathbb{Z}$ since $T$ is connected, we have:
+
+\[0 \rightarrow \mathbb{Z} \rightarrow \mathbb{Z} \oplus \mathbb{Z} \xrightarrow{}  \mathbb{Z} \oplus \mathbb{Z} \rightarrow\]
+\[ H^1(T, \Delta_T\mathbb{Z}) \xrightarrow{f} \mathbb{Z} \oplus \mathbb{Z} \xrightarrow{g} \mathbb{Z} \oplus \mathbb{Z} \rightarrow\]
+\[ H^2(T, \Delta_T\mathbb{Z}) \rightarrow 0 \rightarrow 0 \rightarrow\]
+ 
+ And since the above is exact, this implies $H^2(T, \Delta_T\mathbb{Z})  \cong \mathbb{Z} \oplus \mathbb{Z} / im g$. By section 6.5 of the notes, the map $g$ is given by $(z_1,z_2) \mapsto (z_1\mid_{C_1 \cap C_2} - z_2\mid_{C_1 \cap C_2} ) = (z_1 - z_2) \oplus (z_2 - z_1) \cong \mathbb{Z} $, so that $H^2(T, \Delta_T\mathbb{Z}) \cong \mathbb{Z}$. In summary:
+ 
+ \[H^n(T; \Delta_T\mathbb{Z}) = \begin{cases} 
+ \mathbb{Z}, & \text{ if } n=0 \text{ or } n=2; \\
+0, & \text{ if } n >2 
+ \end{cases}
 \]
-\item Use a Mayer-Vietoris sequence to calculate the cohomology groups of the Klein bottle with values in the constant sheaf $\Delta_K\zed$. 
+\item Use a Mayer-Vietoris sequence to calculate the cohomology groups of the Klein bottle with values in the constant sheaf $\Delta_K\zed$. \\
 
-Note that we can describe the space $K$ as the union of two M\"obius strips $X = [0,1]\times[0,1]/(x, 0) \sim (1 − x, 1)$ and $Y =  [0,1]\times[0,1]/(y, 0) \sim (1 − y, 1)$. Further note that $X$, $Y$ and $X \cap Y$ are all homotopic to $S^1$. Then Mayer-Vietoris sequence gives :
+Note that we can describe the space $K$ as the union of two M\"obius strips $X = [0,1]\times[0,1]/(x, 0) \sim (1 - x, 1)$ and $Y =  [0,1]\times[0,1]/(y, 0) \sim (1, 1-y)$. Further note that $X$, $Y$ and $X \cap Y$ are all homotopic to $S^1$. Then Mayer-Vietoris sequence gives :
 \[0 \rightarrow H^0(K, \Delta_K\mathbb{Z}) \rightarrow H^0(X;\Delta_K\mathbb{Z}) \oplus H^0(Y;\Delta_K\mathbb{Z}) \rightarrow H^0(X \cap Y; \Delta_K\mathbb{Z}) \rightarrow\]
  \[H^1(K, \Delta_K\mathbb{Z}) \rightarrow H^1(X;\Delta_K\mathbb{Z}) \oplus H^1(Y;\Delta_K\mathbb{Z}) \rightarrow H^1(X \cap Y; \Delta_K\mathbb{Z}) \rightarrow  \]
 \[H^2(K, \Delta_K\mathbb{Z}) \rightarrow H^2(X;\Delta_K\mathbb{Z}) \oplus H^2(Y;\Delta_K\mathbb{Z}) \rightarrow H^2(X \cap Y; \Delta_K\mathbb{Z}) \rightarrow  \]
-which by example 8.2, for $X$, $Y$ and $X \cap Y$ homotopic to $S^1$ gives:
-\[0 \rightarrow H^0(K, \Delta_K\mathbb{Z}) \rightarrow \mathbb{Z} \oplus \mathbb{Z} \rightarrow \mathbb{Z} \rightarrow\]
-\[H^1(K, \Delta_K\mathbb{Z}) \rightarrow \mathbb{Z} \oplus \mathbb{Z} \rightarrow \mathbb{Z} \rightarrow \]
-\[H^2(K, \Delta_K\mathbb{Z}) \rightarrow 0 \rightarrow 0 \rightarrow \rightarrow \]
-and since the above sequence is exact we have:
-\[
-H^n(K; \Delta_K\mathbb{Z}) = \begin{cases}
-\mathbb{Z}, & \text{if } n=0 \text{ or } 1;\\
+which by example 8.2, for $X$, $Y$ and $X \cap Y$ homotopic to $S^1$ gives (and $K$ connected):
+\[0 \rightarrow \mathbb{Z} \rightarrow \mathbb{Z} \oplus \mathbb{Z} \rightarrow \mathbb{Z} \rightarrow\]
+\[H^1(K, \Delta_K\mathbb{Z}) \xrightarrow{f} \mathbb{Z} \oplus \mathbb{Z} \xrightarrow{g} \mathbb{Z} \rightarrow \]
+\[H^2(K, \Delta_K\mathbb{Z}) \rightarrow 0 \rightarrow 0 \rightarrow  \]
+Exactness gives $H^2(K, \Delta_K\mathbb{Z}) \cong \mathbb{Z}/im g$ and since the map $g$ is $(z_1, z_2) \mapsto (z_1 - z_2)$, $im g \cong \mathbb{Z}$, and $H^2(K, \Delta_K\mathbb{Z}) = \mathbb{Z} / \mathbb{Z} = 0$. In summary:
 
-0 & otherwise  
+\[H^n(K; \Delta_T\mathbb{Z}) = \begin{cases} 
+\mathbb{Z}, & \text{ if } n=0; \\
+0, & \text{ if } n >1 
 \end{cases}
 \]
 
-
 \item
 Let $S$ be the middle circle of the torus, given by the image of the segment $\{(x,0)|\,x\in[0,1]\}$ in the quotient space. Give the long exact sequences for the pair $(T,S)$ 
-and for the relative cohomology with coefficients in $\Delta_T\zed$ and calculate as many of the groups as you can.
+and for the relative cohomology with coefficients in $\Delta_T\zed$ and calculate as many of the groups as you can.\\
+
+The long exact sequence of the cohomology of the pair $(S,T)$ is given by:
+\[\ldots \rightarrow H^n(T,S; \Delta_T\mathbb{Z}) \rightarrow H^n (T; \Delta_T\mathbb{Z}) \rightarrow H^n(S; \Delta_T\mathbb{Z}\mid_S)\]
+\[H^{n+1}(T, S;\Delta_T\mathbb{Z}) \rightarrow \ldots \]
+
+From the results above and the fact that $S$ is homotopic to $S^1$, we can fill in:
+
+\[H^0(T,S; \Delta_T\mathbb{Z}) \rightarrow \mathbb{Z} \rightarrow \mathbb{Z} \rightarrow \]
+\[H^1(T,S; \Delta_T\mathbb{Z}) \rightarrow H^1(T; \Delta_T\mathbb{Z}) \rightarrow \mathbb{Z} \rightarrow \]
+\[ H^2(T,S; \Delta_T\mathbb{Z}) \rightarrow \mathbb{Z} \rightarrow 0\]
+\[ H^3(T,S; \Delta_T\mathbb{Z}) \rightarrow 0 \rightarrow 0 \rightarrow \ldots\]\\
+
+so that $H^3(T,S; \Delta_T\mathbb{Z}) =0$ for $n >2$. We also have $H^0(T, X;\Delta_T\mathbb{Z}) = H^0(T; i_!i^*\Delta_T\mathbb{Z})$, where $i: T \setminus S \xhookrightarrow[]{} T$, so that $H^0(T, X;\Delta_T\mathbb{Z}) = \Gamma i_!i^*\Delta_T\mathbb{Z} = i_!i^*\Delta_T\mathbb{Z}(T)=\mathbb{Z}$.\\\\
+
+For the local cohomology, note that $S = T \setminus Y$, where $Y = T \setminus S$. The long exact sequence for the local cohomology is:
+\[\ldots \rightarrow H^n_S(T;\Delta_T\mathbb{Z}) \rightarrow H^n(T;\Delta_T\mathbb{Z}) \rightarrow H^n(Y; \Delta_T\mathbb{Z}\mid_Y) \rightarrow  \]
+\[H^{n+1}_S(T;\Delta_T\mathbb{Z}) \rightarrow \ldots \]
+
+From the results above and the fact that $Y$ is homotopic to $T$, we can fill in:
+\[H^0_S(T;\Delta_T\mathbb{Z}) \rightarrow \mathbb{Z} \rightarrow \mathbb{Z} \rightarrow  \]
+\[ H^1_S(T;\Delta_T\mathbb{Z}) \rightarrow H^1(T;\Delta_T\mathbb{Z}) \rightarrow \mathbb{Z} \oplus \mathbb{Z} \rightarrow  \]
+\[ H^2_S(T;\Delta_T\mathbb{Z}) \rightarrow \mathbb{Z} \rightarrow \mathbb{Z} \rightarrow  \]
+\[H^3_S(T;\Delta_T\mathbb{Z}) \rightarrow 0 \rightarrow 0 \rightarrow \ldots \]\\
+
+so that the higher homology groups are all zero. For $H^0_S(T;\Delta_T\mathbb{Z})$, note that $H^0_S(T;\Delta_T\mathbb{Z})= \Gamma_S(\Delta_T\mathbb{Z})=\{z \in \Gamma(\Delta_T \mathbb{Z}); supp(z) \subseteq S\} =0$, since the support of $0$ is $\emptyset \subseteq S$. \\
+ 
 \item
 Let $S'\subset K$ be the image of $\{(x,0)|\,x\in[0,1]\}$ in the quotient space $K$.
 Use the long exact sequence from Proposition 9.4.1 and fill in as many groups as you can to find the cohomology with compact support for 
